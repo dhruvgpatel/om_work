@@ -1,0 +1,113 @@
+<!-- ***************ejs file**************** -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #2 {
+        text-align: center;
+        height: 6cm;
+        width: 20cm;
+        font-size: 0.25cm;
+    }
+
+    b {
+        background-color: lawngreen;
+        color: red;
+    }
+</style>
+
+<body>
+        <center>
+            
+            <table border="2" id="2">
+                <tr>
+                    <td>ID</td>
+                    <td>FIRSTNAME</td>
+                    <td>LASTNAME</td>
+                    <td>MAIL</td>
+                    <td>MOBILE</td>
+                    <td>DOB</td>
+                   
+                </tr>
+                <% result1.forEach(entry=> { %>
+                    <tr>
+                        <td>
+                            <%=entry.id%>
+                        </td>
+                        <td>
+                            <%=entry.fname%>
+                        </td>
+                        <td>
+                            <%=entry.lname%>
+                        </td>
+                        <td>
+                            <%=entry.mail%>
+                        </td>
+                        <td>
+                            <%=entry.mobile%>
+                        </td>
+                        <td>
+                            <%=entry.dob%>
+                        </td>
+                    </tr>
+                    <%})%>
+
+            </table>
+           
+                
+
+         <%for (i=1; i<=count;i++){%>
+                <% if(curpage==i){ %>
+                <span id='<%=i%>' onclick="pagination(this)"><%=i%></span>
+                <% } else{ %>
+                
+                <span id='<%=i%>' onclick="pagination(this)"><%=i%></span>
+                <% } }%>
+
+                                
+
+
+        </center>
+</body>
+<script>
+  function pagination(p) {
+    console.log('demo')
+        var id = p.id
+        console.log(id)
+        var ajax = 'true';
+        fetch(`/?num=${id}&ajax=${ajax}`)
+            .then((res) =>{return res.json()})
+            .then((data) => {
+                console.log(data)
+                var tbl = document.getElementById('2')
+                temp = '';
+                temp += `<tr>
+             <td>ID</td>
+            <td>FIRSTNAME</td>
+            <td>LASTNAME</td>
+            <td>MAIL</td>
+            <td>MOBILE</td>
+            <td>DOB</td>
+        </tr>`;
+                for (var i = 0; i < data.length; i++){
+                    temp += `<tr>
+            <td>${data[i].id}</td>
+            <td>${data[i].fname}</td>
+            <td>${data[i].lname}</td>
+            <td>${data[i].mail}</td>
+            <td>${data[i].mobile}</td>
+            <td>${data[i].dob}</td>
+        </tr>`
+            }
+    tbl.innerHTML = temp;
+})
+}
+</script>
+
+</html>

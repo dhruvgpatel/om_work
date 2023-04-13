@@ -1,0 +1,76 @@
+<!-- ***************ejs file**************** -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     #2{
+        text-align: center;
+     height: 6cm;
+     width: 20cm;
+     font-size:0.25cm;
+    }
+    b{
+        background-color: lawngreen;
+        color: red;
+    }
+    #1{
+        
+      border-spacing: 1cm;
+    }
+</style>
+<body>
+
+    <center>
+        <form action="/search" method="get" >
+            <input id="search" type="text" name="text" placeholder="search here">
+            
+            <input type="submit" value="Go">
+            <select name="multi" >
+                <option value="and">AND</option>
+                <option value="or">OR</option>
+                </select>
+            </form>
+            
+        <table border="2" id="1">
+            <tr>
+            <td>*</td><td>fname</td>
+            <td>^</td><td>lname</td>
+            <td>_</td><td>mail</td>
+            <td>!</td><td>mobile</td>
+            <td>%</td><td>dob</td>
+        </tr>
+        </table>
+   
+            <table border="2" id="2">
+                
+        <tr>
+            <td><a href="/?num=1&curorder=id">ID</a></td>
+            <td><a href="/?num=1&curorder=fname">FIRSTNAME</a></td>
+            <td><a href="/?num=1&curorder=lname">LASTNAME</a></td>
+            <td><a href="/?num=1&curorder=mail">MAIL</a></td>
+            <td><a href="/?num=1&curorder=mobile">MOBILE</a></td>
+            <td><a href="/?num=1&curorder=dob">DOB</a></td>
+        </tr>
+
+        <% data.forEach(entry=> { %>
+        <tr>
+            <td><%=entry.id%></td>
+            <td><%=entry.fname%></td>
+            <td><%=entry.lname%></td>
+            <td><%=entry.mail%></td>
+            <td><%=entry.mobile%></td>
+            <td><%=entry.dob%></td>
+        </tr> 
+        <%})%> 
+
+    </table>
+
+
+</center>
+</body>
+</html>

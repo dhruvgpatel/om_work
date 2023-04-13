@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Itim&family=Kalam:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    .search {
+        font-size: 0.45cm;
+        font-family: 'Courier Prime', monospace;
+        font-weight: 580;
+        width: 65%;
+    }
+
+    .go {
+        font-size: 0.45cm;
+        font-family: 'Courier Prime', monospace;
+        font-weight: 580;
+        width: 7%;
+    }
+
+    .multi {
+        font-size: 0.45cm;
+        font-family: 'Courier Prime', monospace;
+        font-weight: 580;
+        width: 6%;
+    }
+
+    .tbl2 {
+        font-size: 0.3cm;
+        background-color: #D7E9B9;
+        /* width: 100pt; */
+
+    }
+
+    .tbl1 {
+        height: fit-content;
+        width: 90%;
+        text-align: center;
+        font-size: 0.4cm;
+        background-color: #D7E9B9;
+        font-family: 'Courier Prime', monospace;
+    }
+
+    tr {
+        font-size: 0.4cm;
+    }
+
+    b {
+        background-color: lawngreen;
+        color: red;
+    }
+
+    body {
+        background-color: #F5F5F5;
+    }
+</style>
+
+<body>
+    <center>
+        <table border="2" id="2" class="tbl2">
+
+            <tr>
+
+                <td>id</td>
+                <td>firstname</td>
+                <td>lastname</td>
+                <td>address</td>
+                <td>city</td>
+                <td>pincode</td>
+                <td>state</td>
+                <td>contact</td>
+                <td>mail</td>
+                <td>gender</td>
+                <td>relationlist</td>
+                <td>dob</td>
+                <td>designation</td>
+                <td>createtime</td>
+            </tr>
+            
+            <% data.forEach(entry=> { %>
+                <tr id="<%=entry.c_id%>">
+
+                    <td><%=entry.c_id%></td>
+                    <td><%=entry.fname%></td>
+                    <td><%=entry.lname%></td>
+                    <td><%=entry.address%></td>
+                    <td><%=entry.city%></td>
+                    <td><%=entry.zipcode%></td>
+                    <td><%=entry.state%></td>
+                    <td><%=entry.contact%></td>
+                    <td><%=entry.email%></td>
+                    <td><%=entry.gender%></td>
+                    <td><%=entry.relationship_status%></td>
+                    <td><%=entry.dob%></td>
+                    <td><%=entry.disignation%></td>
+                    <td><%=entry.createtime%></td>
+                    <td><h3><a href="/edit?id=<%=entry.c_id%>">Edit</a></h3></td>
+                </tr>
+                <%})%>
+
+        </table>
+
+        <center><a href="http://localhost:8080/job_app_form">fill Another response</a></center>
+    </center>
+</body>

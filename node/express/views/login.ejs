@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration page</title>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+
+<body>
+
+
+    <div class="container">
+        <div class="section">
+            <div>
+                <img src="/images/logo.svg">
+            </div>
+            <div>
+                <form action="/logindata" method="post">
+                    <div class="welcome">
+                        <h2>welcome Back</h2>
+                    </div>
+                    <div class="compo">
+                        <div><label>mail:</label></div>
+                        <div><input type="text" name="mail" id="mail" class="insert" onchange ="checkmail()"></div>
+
+                    </div>
+
+                    <div class="compo">
+                        <div><label>password:</label></div>
+                        <div><input type="password" name="pwd" id="pwd" class="insert" onchange="checkpwd()"></div>
+                        <div>
+                            <p id="2"></p>
+                        </div>
+                    </div>
+
+                    <div><input type="submit" value="Login" class="login" id="sub" disabled></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+        // function checkmail() {
+          
+        //     var email = document.getElementById('mail').value;
+        //     if (email == "") {
+        //         document.getElementById("2").innerHTML = " Email can not empty";
+          
+        //     }
+
+        //     else {
+        //         document.getElementById('2').textContent = '';
+        //     }
+
+        // }
+        // function checkpwd() {
+           
+        //     var pwd = document.getElementById('pwd').value;
+        //     if (pwd == "") {
+        //         document.getElementById("2").innerHTML = " Password can not empty";
+    
+        //         return false;
+        //     }
+        //     else {
+               
+        //         document.getElementById("2").textContent = "";
+        //         return true;
+        //     }
+        // }
+
+    function checkmail() {
+        var mail = document.getElementById('mail').value;
+        let sub = document.getElementById("sub")
+        if (mail == "") {
+            document.getElementById("2").innerHTML = "** mail can not empty";
+            sub.disabled  = true ;
+        }
+      
+        else {
+            document.getElementById('2').innerHTML = '';
+
+        }
+    }
+    function checkpwd() {
+
+        var pwd = document.getElementById('pwd').value;
+        document.getElementById("sub").disabled = true;
+
+        if (pwd == "") {
+            document.getElementById("2").innerHTML = "** password can not empty";
+       
+            sub.disabled  = true ;
+
+        }
+        else {
+            document.getElementById('2').innerHTML = '';
+            
+            sub.disabled  = false;
+
+        }
+    }
+
+
+</script>
+
+</html>

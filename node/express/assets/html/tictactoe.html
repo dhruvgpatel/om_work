@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>Tac-tac-toe</title>
+</head>
+
+<style>
+    #tbl {
+        border-style: solid;
+
+        border-color: rgb(177, 40, 154);
+        height: 10cm;
+        width: 10cm;
+        justify-content: center;
+
+    }
+
+    td:hover {
+        background-color: rgba(255, 0, 191, 0.062);
+    }
+
+    #reset {
+        height: 1CM;
+        width: 4cm;
+        background-color: cyan;
+        border-color: black;
+        border-width: 3px;
+        font-size: medium;
+        font-weight: bold;
+        border-radius: 10%;
+
+    }
+
+    .y {
+
+        font-size: 0.7cm;
+        padding: 0.2cm;
+    }
+
+    .x {
+        text-align: center;
+        font-size: 1.5cm;
+        height: 3cm;
+        width: 3cm;
+        font-family: 'Caveat', cursive;
+
+
+    }
+
+    #om {
+        font-size: xx-large;
+        color: rgb(255, 60, 0);
+    }
+</style>
+
+<body>
+    <center>
+
+
+        <table border="2">
+            <tr>
+                <td class="y">Player-x: </td>
+                <td class='y' id='xwin'>0</td>
+            </tr>
+            <tr>
+
+                <td class='y'>Player-0: </td>
+                <td class='y' id="0win">0</td>
+            </tr>
+            <tr>
+
+                <td class='y'>Draw:</td>
+                <td class='y' id="draw">0</td>
+            </tr>
+        </table>
+
+
+        </table>
+        <h1>Tic-tac-toe</h1>
+
+        <table border="3" id='tbl'>
+
+            <tr>
+                <td class='x' id="div1" onclick="control(this)"></td>
+                <td class='x' id="div2" onclick="control(this)"></td>
+                <td class='x' id="div3" onclick="control(this)"></td>
+            </tr>
+            <tr>
+                <td class='x' id="div4" onclick="control(this)"></td>
+                <td class='x' id="div5" onclick="control(this)"></td>
+                <td class='x' id="div6" onclick="control(this)"></td>
+            </tr>
+            <tr>
+                <td class='x' id="div7" onclick="control(this)"></td>
+                <td class='x' id="div8" onclick="control(this)"></td>
+                <td class='x' id="div9" onclick="control(this)"></td>
+            </tr>
+        </table>
+
+        <p id="om"> </p>
+        <input id='reset' type="reset" onclick="reset()">
+
+    </center>
+    <Script>
+
+        let omcount = 0;
+        let omxcount = 1;
+        let om0count = 1;
+        let omdraw = 1;
+        let win;
+
+        function control(om) {
+            if (om.innerHTML == "") {
+                if (omcount % 2 == 0) {
+
+                    document.getElementById(om.id).innerHTML = '0';
+                    document.getElementById(om.id).style.backgroundColor = "yellow";
+
+                } else {
+
+                    document.getElementById(om.id).innerHTML = 'X';
+                    document.getElementById(om.id).style.backgroundColor = "rgb(102, 255, 0)";
+
+                }
+
+                omcount++;
+                if (matchwin()) {
+                    reset();
+
+                }
+                if (omcount >= 9) {
+
+
+                    document.getElementById('draw').innerHTML = omdraw;
+                    omdraw++;
+                    reset()
+                }
+
+            }
+
+        }
+
+        function draw() {
+            alert('draw')
+            document.getElementById('om').innerHTML = "Draw";
+        }
+
+
+        function reset() {
+            for (let omindex = 1; omindex <= 9; omindex++) {
+                document.getElementById('div' + omindex).innerHTML = '';
+                document.getElementById('div' + omindex).style.backgroundColor = "white";
+                document.getElementById('om').innerHTML = ""
+            }
+            omcount = 0;
+        }
+        function winner(win) {
+
+            if (win == 'x'){
+                
+                alert("player x won");
+                
+                for (let omindex = 1; omindex <= 9; omindex++) {
+                    document.getElementById('div' + omindex).innerHTML = '';
+                    document.getElementById('div' + omindex).style.backgroundColor = "white";
+                    document.getElementById('om').innerHTML = ""
+                }
+                omcount = 0;
+            }else{
+                alert("player O won");
+                for (let omindex = 1; omindex <= 9; omindex++) {
+                    document.getElementById('div' + omindex).innerHTML = '';
+                    document.getElementById('div' + omindex).style.backgroundColor = "white";
+                    document.getElementById('om').innerHTML = ""
+                }
+                omcount = 0;
+            }
+                
+        }
+    
+
+
+        function matchwin() {
+            if (getdiv('div1') != '' && getdiv('div2') != '' && getdiv('div3') != '' && getdiv('div1') == 'X' && getdiv('div2') == 'X' && getdiv('div3') == 'X') {
+
+               
+                document.getElementById('xwin').innerHTML = omxcount;
+                omxcount++;
+                win = 'x'
+                winner(win)
+            }
+            if (getdiv('div4') != '' && getdiv('div5') != '' && getdiv('div6') != '' && getdiv('div4') == 'X' && getdiv('div5') == 'X' && getdiv('div6') == 'X') {
+
+              
+                document.getElementById('xwin').innerHTML = omxcount;
+                omxcount++;
+                win = 'x'
+                winner(win)
+            }
+            if (getdiv('div7') != '' && getdiv('div8') != '' && getdiv('div9') != '' && getdiv('div7') == 'X' && getdiv('div8') == 'X' && getdiv('div9') == 'X') {
+                document.getElementById('xwin').innerHTML = omxcount;
+                omxcount++;
+                      win = 'x'
+                winner(win)
+            }
+            if (getdiv('div1') != '' && getdiv('div4') != '' && getdiv('div7') != '' && getdiv('div1') == 'X' && getdiv('div4') == 'X' && getdiv('div7') == 'X') {
+
+               
+                document.getElementById('xwin').innerHTML = omxcount;
+                omxcount++;
+                      win = 'x'
+                winner(win)
+            }
+            if (getdiv('div2') != '' && getdiv('div5') != '' && getdiv('div8') != '' && getdiv('div2') == 'X' && getdiv('div5') == 'X' && getdiv('div8') == 'X') {
+
+              
+                document.getElementById('xwin').innerHTML = omxcount;
+                omxcount++;
+                      win = 'x'
+                winner(win)
+            }
+            if (getdiv('div3') != '' && getdiv('div6') != '' && getdiv('div9') != '' && getdiv('div3') == 'X' && getdiv('div6') == 'X' && getdiv('div9') == 'X') {
+
+             
+                document.getElementById('xwin').innerHTML = omxcount;
+                omxcount++;
+                      win = 'x'
+                winner(win)
+            }
+            if (getdiv('div1') != '' && getdiv('div5') != '' && getdiv('div9') != '' && getdiv('div1') == 'X' && getdiv('div5') == 'X' && getdiv('div9') == 'X') {
+
+                
+                document.getElementById('xwin').innerHTML = omxcount;
+                omxcount++;
+                      win = 'x'
+                winner(win)
+            }
+            if (getdiv('div3') != '' && getdiv('div5') != '' && getdiv('div7') != '' && getdiv('div3') == 'X' && getdiv('div5') == 'X' && getdiv('div7') == 'X') {
+
+                
+                document.getElementById('xwin').innerHTML = omxcount;
+                omxcount++;
+                win = 'x'
+                winner(win)
+            }
+
+
+            if (getdiv('div1') != '' && getdiv('div2') != '' && getdiv('div3') != '' && getdiv('div1') == '0' && getdiv('div2') == '0' && getdiv('div3') == '0') {
+
+                document.getElementById('0win').innerHTML = om0count;
+                om0count++;
+                win = '0'
+                winner(win)
+            }
+            if (getdiv('div4') != '' && getdiv('div5') != '' && getdiv('div6') != '' && getdiv('div4') == '0' && getdiv('div5') == '0' && getdiv('div6') == '0') {
+
+               
+                document.getElementById('0win').innerHTML = om0count;
+                om0count++;
+                 win = '0'
+                winner(win)
+            }
+            if (getdiv('div7') != '' && getdiv('div8') != '' && getdiv('div9') != '' && getdiv('div7') == '0' && getdiv('div8') == '0' && getdiv('div9') == '0') {
+
+                
+                document.getElementById('0win').innerHTML = om0count;
+                om0count++;
+                 win = '0'
+                winner(win)
+            }
+            if (getdiv('div1') != '' && getdiv('div4') != '' && getdiv('div7') != '' && getdiv('div1') == '0' && getdiv('div4') == '0' && getdiv('div7') == '0') {
+
+           
+                document.getElementById('0win').innerHTML = om0count;
+                om0count++;
+                 win = '0'
+                winner(win)
+
+            }
+            if (getdiv('div2') != '' && getdiv('div5') != '' && getdiv('div8') != '' && getdiv('div2') == '0' && getdiv('div5') == '0' && getdiv('div8') == '0') {
+
+                document.getElementById('0win').innerHTML = om0count;
+                om0count++;
+                 win = '0'
+                winner(win)
+            }
+            if (getdiv('div3') != '' && getdiv('div6') != '' && getdiv('div9') != '' && getdiv('div3') == '0' && getdiv('div6') == '0' && getdiv('div9') == '0') {
+
+                document.getElementById('0win').innerHTML = om0count;
+                om0count++;
+                 win = '0'
+                winner(win)
+            }
+            if (getdiv('div1') != '' && getdiv('div5') != '' && getdiv('div9') != '' && getdiv('div1') == '0' && getdiv('div5') == '0' && getdiv('div9') == '0') {
+
+           
+                document.getElementById('0win').innerHTML = om0count;
+                om0count++;
+                 win = '0'
+                winner(win)
+            }
+            if (getdiv('div3') != '' && getdiv('div5') != '' && getdiv('div7') != '' && getdiv('div3') == '0' && getdiv('div5') == '0' && getdiv('div7') == '0') {
+
+                
+                document.getElementById('0win').innerHTML = om0count;
+                om0count++;
+                 win = '0'
+                winner(win)
+            }
+
+        }
+
+        function getdiv(div) {
+            return document.getElementById(div).innerHTML;
+        }
+
+
+    </Script>
+
+
+</body>
+
+</html>

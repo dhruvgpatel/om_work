@@ -1,0 +1,578 @@
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kalam:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Itim&family=Kalam:wght@700&display=swap"
+        rel="stylesheet">
+    <title>JOB-APPLICATION-FORM</title>
+</head>
+<style>
+    table {
+        width: 100%;
+    }
+
+    h3 {
+        color: red;
+    }
+
+    .width {
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+    }
+
+    select {
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+    }
+</style>
+
+<body>
+
+    <body>
+
+        <form action="/update" method="post">
+            <% om.forEach(entry=> { %>
+                <fieldset>
+                    <table border="2" style="background-color:#D7E9B9;">
+                        <tr>
+                            <td colspan="8" align="center">
+                                <h1 style="font-family: 'Itim', cursive;
+                                font-family: 'Kalam', cursive; ">JOB-APPLICATION-FORM</h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8">
+                                <h3 style="font-family: Cursive; ">➺ Basic Details</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <input type="text" value=" <%=entry.c_id%>" name='id' hidden>
+                            <td><label>First Name:</label></td>
+                            <td><input type="text" name="fname" class="width" value=" <%=entry.fname%>"> </td>
+                            <td><label>Last Name:</label></td>
+                            <td><input type="text" name="lname" class="width" value=" <%=entry.lname%>"> </td>
+
+                            <td><label>Address:</label></td>
+                            <td><input type="text" name="address" class="width" value=" <%=entry.address%>"> </td>
+                            <td><label> State:</label></td>
+                            <td><select id="state" name="state" onchange="change(this)" class="state">
+                                    <option disabled selected>select state</option>
+                                    <% for ( var i=0; i<states.length; i++) { %>
+
+                                        <%if(states[i].state_name==entry.state){%>
+
+
+                                            <option value="<%=states[i].state_name%>" name="<%=states[i].state_name%>"
+                                                id="<%=states[i].state_name%>" selected>
+                                                <%=states[i].state_name%>
+                                            </option>
+                                            <%}else{%>
+                                                <option value="<%=states[i].state_name%>"
+                                                    name="<%=states[i].state_name%>" id="<%=states[i].state_name%>">
+                                                    <%=states[i].state_name%>
+                                                </option>
+                                                <% }%>
+
+                                                    <% }%>
+                                </select>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td><label>City:</label></td>
+                            <td><select id="city" name="city">
+                                    <option disabled selected value="<%=entry.city%>">
+                                        <%=entry.city%>
+                                    </option>
+                                </select>
+                            </td>
+                            <td><label>Pin code:</label></td>
+                            <td><input type="text" name="pincode" class="width" value="<%=entry.zipcode%>">
+                            </td>
+
+                            <td><label>Phone Number:</label></td>
+                            <td><input type="text" name="num" class="width" value="<%=entry.contact%>"> </td>
+                            <td><label>Email:</label></td>
+                            <td><input type="text" name="email" class="width" value="<%=entry.email%>"> </td>
+                        </tr>
+
+                        <tr>
+                            <td><label> Choose your gender:</label></td>
+                            <td>
+                                <%if(entry.gender=="male"){%>
+                                    <input type="radio" name="gender" id="male" value="male" checked="checked"> male
+                                    <input type="radio" name="gender" id="female" value="female">female
+                                    <input type="radio" name="gender" id="other" value="other">other
+
+                                    <%}else if(entry.gender=="female" ){%>
+                                        <input type="radio" name="gender" id="male" value="male"> male
+                                        <input type="radio" name="gender" id="female" value="female"
+                                            checked="checked">female
+                                        <input type="radio" name="gender" id="other" value="other">other
+
+                                        <%}else if(entry.gender=="other" ){%>
+                                            <input type="radio" name="gender" id="male" value="male"> male
+                                            <input type="radio" name="gender" id="female" value="female">female
+                                            <input type="radio" name="gender" id="other" value="other"
+                                                checked="checked">other
+                                            <%}%>
+
+                            </td>
+
+                            <td><label> Relationship Status:</label></td>
+                            <td><select id="list" name="relationlist">
+                                    <% for ( var j=0; j<status.length; j++) { %>
+                                        <%if(status[j].option_name==entry.relationship_status){%>
+                                            <option value="<%=status[j].option_name%>" name="<%=status[j].option_name%>"
+                                                id="<%=status[j].option_name%>" selected>
+                                                <%=status[j].option_name%>
+                                            </option>
+                                            <%}else{%>
+                                                <option value="<%=status[j].option_name%>"
+                                                    name="<%=status[j].option_name%>" id="<%=status[j].option_name%>">
+                                                    <%=status[j].option_name%>
+                                                </option>
+                                                <% }%>
+                                                    <% }%>
+                                </select>
+                            </td>
+                            <td><label>Date Of Birth:</label></td>
+                            <td><input type="date" name="dob" class="width" value="<%=entry.dob%>"> </td>
+                        </tr>
+                        <tr>
+                            <td><label> Designation:</label></td>
+                            <td><input type="text" name="designation" id="txtarea1" class="width"
+                                    value="<%=entry.disignation%>">
+                            </td>
+                        </tr>
+                        <tr>
+                    </table>
+                </fieldset>
+                <%})%>
+
+                    <fieldset>
+                        <table border="2" id="tbl1" style="background-color:#D7E9B9;">
+                            <tr>
+                                <td colspan="8">
+                                    <h3 style="font-family: Cursive; ">➺ Education Details</h3>
+                                </td>
+                            </tr>
+
+                            <% om1.forEach(entry=> { %>
+                                <tr id="tr1">
+                                    <input type="text" value=" <%=entry.academic_id%>" name='eid' hidden>
+                                    <td><label>Courses Name:</label></td>
+                                    <td><select id="course" name="coursename">
+                                            <% for ( var i=0; i<courses.length; i++) { %>
+                                                <%if(courses[i].option_name==entry.course_name){%>
+
+                                                    <option value="<%=courses[i].option_name%>"
+                                                        name="<%=courses[i].option_name%>"
+                                                        id="<%=courses[i].option_name%>" selected>
+                                                        <%=courses[i].option_name%>
+                                                    </option>
+                                                    <%}else{%>
+                                                        <option value="<%=courses[i].option_name%>"
+                                                            name="<%=courses[i].option_name%>"
+                                                            id="<%=courses[i].option_name%>">
+                                                            <%=courses[i].option_name%>
+                                                        </option>
+                                                        <% }%>
+                                                            <% }%>
+                                        </select>
+                                    </td>
+                                    <td><label>Univercity:</label></td>
+                                    <td><input type="text" name="univercity" class="width" id="institute"
+                                            value="<%=entry.certification_from%>">
+                                    </td>
+
+                                    <td><label>Passing Year:</label></td>
+                                    <td><input type="text" name="year" class="width" id="year"
+                                            value="<%=entry.year_completed%>">
+                                    </td>
+                                    <td><label>Percentage:</label></td>
+                                    <td><input type="text" name="percentage" class="width" id="percentage"
+                                            value="<%=entry.percentage%>">
+                                    </td>
+                                </tr>
+                                <%})%>
+
+                        </table>
+                        <!-- <input type="button" value="add" onclick="func1()"> -->
+
+                        <center><label>Add Another course details: -> </label><input type="button" name="num"
+                                onclick="func1()" value="➕">
+                        </center>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <table border="2" id="tbl2" style="background-color:#D7E9B9;">
+                            <tr>
+                                <td colspan="10">
+                                    <h3 style="font-family: Cursive; ">➺ Experience Details</h3>
+                                </td>
+                            </tr>
+                            <% om2.forEach(entry=> { %>
+                                <tr id="tr2">
+                                    <input type="text" value=" <%=entry.exid%>" name='exid' hidden>
+                                    <td><label>Company Name:</label></td>
+                                    <td><input type="text" name="company" class="width" id="company"
+                                            value="<%=entry.company_name%>" selected></td>
+                                    <td><label>Designation:</label></td>
+                                    <td><input type="text" name="designation2" class="width" id="designation"
+                                            value="<%=entry.designation%>" selected>
+                                    <td>
+                                    <td><label>Start date:</label></td>
+                                    <td><input type="date" name="startdte" class="width" id="start"
+                                            value="<%=entry.start_date%>" selected></td>
+                                    <td><label>End date:</label></td>
+                                    <td><input type="date" name="enddte" class="width" id="end"
+                                            value="<%=entry.end_date%>" selected></td>
+                                </tr>
+                                <%})%>
+                        </table>
+                        <center><label>Add Another course details: -> </label><input type="button" name="num"
+                                onclick="func2()" value="➕"></center>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <table border="2" style="background-color:#D7E9B9;">
+                            <tr>
+                                <td colspan="8">
+                                    <h3 style="font-family: Cursive; ">➺ References Details</h3>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="1">
+                                    <h4>Person 1 details*</h4>
+                                </td>
+                                <input type="text" value=" <%=om5[0].refrences_id%>" name='refid' hidden>
+                                <td><label>Name:</label></td>
+                                <td><input type="text" name="p1name" class="width" value="<%=om5[0].name%>"> </td>
+                                <td><label>Relation:</label></td>
+                                <td><input type="text" name="p1relation" class="width" value="<%=om5[0].relation%>">
+                                </td>
+                                <td><label>Contact number:</label></td>
+                                <td><input type="text" name="p1mobile" class="width" value="<%=om5[0].contact%>">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="1">
+                                    <h4>Person 2 details*</h4>
+                                </td>
+                                <input type="text" value=" <%=om5[1].refrences_id%>" name='refid2' hidden>
+                                <td><label>Name:</label></td>
+                                <td><input type="text" name="p2name" class="width" value="<%=om5[1].name%>"> </td>
+                                <td><label>Relation:</label></td>
+                                <td><input type="text" name="p2relation" class="width" value="<%=om5[1].relation%>">
+                                </td>
+                                <td><label>Contact number:</label></td>
+                                <td><input type="text" name="p2mobile" class="width" value="<%=om5[1].contact%>">
+                                </td>
+                            </tr>
+
+                        </table>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div style="background-color:#D7E9B9;">
+
+                            <h3 style="font-family: Cursive; ">➺ languages Details</h3>
+
+                            <% for(var i=0 ; i<languages.length ; i++){ %>
+                                <%var flag=0%>
+                                    <% for(let j=0 ;j<om3.length ;j++){%>
+                                        <%if(languages[i].option_name==om3[j].languages){%>
+                                            <%flag=1%>
+
+                                                <br> <input type="checkbox" name="languages"
+                                                    id="<%=languages[i].option_name%>"
+                                                    value="<%=languages[i].option_name%>" checked>
+                                                <%=languages[i].option_name %>
+
+                                                    <input type="checkbox" name="read"
+                                                        value="<%=languages[i].option_name%>" <%if(
+                                                        om3[j].lang_read=="yes" ){%>checked<%}%>
+                                                        >Read
+                                                        <input type="checkbox" name="write"
+                                                            value="<%=languages[i].option_name%>"
+                                                            <%if(om3[j].lang_write=="yes" ){%>checked<%}%>>Write
+                                                            <input type="checkbox" name="speak"
+                                                                value="<%=languages[i].option_name%>"
+                                                                <%if(om3[j].lang_speak=="yes" ){%>checked<%}%>>Speak
+
+                                                                <br>
+                                                                <%}%>
+                                                                    <%}%>
+                                                                        <%if(flag==0){%>
+
+                                                                            <br> <input type="checkbox" name="languages"
+                                                                                id="<%=languages[i].option_name%>"
+                                                                                value="<%=languages[i].option_name%>">
+
+                                                                            <%=languages[i].option_name %>
+
+
+                                                                                <input type="checkbox" name="read"
+                                                                                    value="<%=languages[i].option_name%>">Read
+                                                                                <input type="checkbox" name="write"
+                                                                                    value="<%=languages[i].option_name%>">Write
+                                                                                <input type="checkbox" name="speak"
+                                                                                    value="<%=languages[i].option_name%>">Speak
+                                                                                <br>
+                                                                                <%}%>
+                                                                                    <%}%>
+                        </div>
+                    </fieldset>
+
+
+
+
+                    <fieldset>
+
+                        <div style="background-color:#D7E9B9;">
+
+                            <h3 style="font-family: Cursive; ">➺ technologies Details</h3>
+                            <% for(var i=0 ; i <technologies.length ; i++){ %>
+                                <% var flag=0 %>
+                                    <% for(j=0;j<om6.length ;j++){ %>
+                                        <%if(technologies[i].option_name==om6[j].tech_name) {%>
+                                            <% flag=1 %>
+                                                <br> <input type="checkbox" name="technologies"
+                                                    id="<%=technologies[i].option_name %>"
+                                                    value="<%=technologies[i].option_name %>"
+                                                    <%if(technologies[i].option_name==om6[j].tech_name){%>checked<%}%>>
+
+                                                    <%=technologies[i].option_name %>
+
+                                                        <%if(om6[j].tech_expertise=="Beginer"){%>
+
+                                                            <input type="radio" name="<%=technologies[i].option_name %>"
+                                                                value="beginer" checked="checked">
+                                                            beginer
+                                                            <input type="radio" name="<%=technologies[i].option_name %>"
+                                                                value="mideator">
+                                                            mideator
+                                                            <input type="radio" name="<%=technologies[i].option_name %>"
+                                                                value="Expert">
+                                                            Expert
+
+                                                            <%}else if(om6[j].tech_expertise=="Mideator" ){%>
+                                                                <input type="radio"
+                                                                    name="<%=technologies[i].option_name %>"
+                                                                    value="beginer">
+                                                                beginer
+                                                                <input type="radio"
+                                                                    name="<%=technologies[i].option_name %>"
+                                                                    value="mideator" checked="checked">
+                                                                mideator
+                                                                <input type="radio"
+                                                                    name="<%=technologies[i].option_name %>"
+                                                                    value="Expert">
+                                                                Expert
+                                                                <%}else if(om6[j].tech_expertise=="Expert" ){%>
+                                                                    <input type="radio"
+                                                                        name="<%=technologies[i].option_name %>"
+                                                                        value="beginer">
+                                                                    Beginer
+                                                                    <input type="radio"
+                                                                        name="<%=technologies[i].option_name %>"
+                                                                        value="mideator">
+                                                                    Mideator
+                                                                    <input type="radio"
+                                                                        name="<%=technologies[i].option_name %>"
+                                                                        value="Expert" checked="checked">
+                                                                    Expert
+
+                                                                    <% }%>
+                                                                        <% }%>
+                                                                            <% }%>
+                                                                                <% if(flag==0){%>
+                                                                                    <br> <input type="checkbox"
+                                                                                        name="technologies"
+                                                                                        id="<%=technologies[i].option_name %>"
+                                                                                        value="<%=technologies[i].option_name %>">
+                                                                                    <%=technologies[i].option_name %>
+
+                                                                                        <input type="radio"
+                                                                                            name="<%=technologies[i].option_name %>"
+                                                                                            value="Beginer">
+                                                                                        beginer
+                                                                                        <input type="radio"
+                                                                                            name="<%=technologies[i].option_name %>"
+                                                                                            value="Mideator">
+                                                                                        mideator
+                                                                                        <input type="radio"
+                                                                                            name="<%=technologies[i].option_name %>"
+                                                                                            value="Expert">
+                                                                                        expert
+                                                                                        <% }%>
+                                                                                            <% }%>
+                        </div>
+
+
+
+                    </fieldset>
+                    <!--pReferences Details -->
+                    <fieldset>
+                        <table border="2" style="background-color:#D7E9B9;">
+                            <tr>
+                                <td colspan="8">
+                                    <h3 style="font-family: Cursive; ">➺ Preferences Details</h3>
+
+                                </td>
+                            </tr>
+                            <% om4.forEach(entry=> { %>
+                                <tr>
+                                    <input type="text" value=" <%=entry.id%>" name='prefid' hidden>
+                                    <td><label>Prefered Location:</label></td><br>
+                                    <td>
+
+                                        <select id="location" name="location">
+                                            <% for ( var j=0; j<locations.length; j++) { %>
+                                                <%if (locations[j].option_name==entry.location){%>
+                                                    <option value="<%=locations[j].option_name%>"
+                                                        name="<%=locations[j].option_name%>"
+                                                        id="<%=locations[j].option_name%>" selected>
+                                                        <%=locations[j].option_name%>
+                                                    </option>
+                                                    <%}else{%>
+                                                        <option value="<%=locations[j].option_name%>"
+                                                            name="<%=locations[j].option_name%>"
+                                                            id="<%=locations[j].option_name%>">
+                                                            <%=locations[j].option_name%>
+                                                        </option>
+                                                        <% }%>
+                                                            <% }%>
+                                        </select>
+                                    </td>
+                                    <td><label>Department:</label></td>
+                                    <td>
+                                        <select id="department" name="department">
+                                            <% for ( var i=0; i<departments.length; i++) { %>
+                                                <% if (departments[i].option_name==entry.department){%>
+                                                    <option value="<%=departments[i].option_name%>"
+                                                        name="<%=departments[i].option_name%>"
+                                                        id="<%=departments[i].option_name%>" selected>
+                                                        <%=departments[i].option_name%>
+                                                    </option>
+                                                    <%}else{%>
+                                                        <option value="<%=departments[i].option_name%>"
+                                                            name="<%=departments[i].option_name%>"
+                                                            id="<%=departments[i].option_name%>">
+                                                            <%=departments[i].option_name%>
+                                                        </option>
+                                                        <% }%>
+                                                            <% }%>
+                                        </select>
+                                    </td>
+                                    <td><label>Current CTC:</label></td><br>
+                                    <td><input type="text" name="curctc" class="width" value="<%=entry.current_ctc%>">
+                                    </td>
+                                    <td><label>Expected CTC:</label></td>
+                                    <td><input type="text" name="expectctc" class="width" required
+                                            value="<%=entry.expected_ctc%>"></td>
+                                </tr>
+
+                                <%})%>
+
+
+
+
+
+
+
+                        </table>
+
+                        <br>
+                        <center><input type="submit" id="submit" value="update"
+                                style="border-color: black; background-color: rgb(127, 255, 148);"></center>
+                    </fieldset>
+
+        </form>
+
+    </body>
+    <script>
+
+        async function change(state) {
+            console.log(state)
+            console.log(state.value)
+            const f = await fetch(`/fetch?stateid=${state.value}`);
+            const data = await f.json();
+            var city = document.getElementById('city');
+            city.innerHTML = '';
+            for (let i = 0; i < data.length; i++) {
+
+                var option = document.createElement("option")
+                option.innerHTML = data[i].city_name
+                option.value = data[i].city_name
+                city.add(option)
+
+            }
+        }
+
+        function func1() {
+            var table = document.getElementById("tbl1");
+            var tr = document.createElement("tr");
+
+            tr.innerHTML = `<tr id="tr1">
+                        <td><label>Courses Name:</label></td>
+                        <td><select id="course" name="coursename">
+                            <% for ( var i=0; i<courses.length; i++) { %>
+                                <option value="<%=courses[i].option_name%>" name="<%=courses[i].option_name%>" id="<%=courses[i].option_name%>"> <%=courses[i].option_name%></option>
+                                
+                                <% }%>
+                            </select>
+                        </td>
+                        <td><label>Univercity:</label></td>
+                        <td><input type="text" name="univercity" class="width" id="institute"> 
+                        </td>
+
+                        <td><label>Passing Year:</label></td>
+                        <td><input type="text" name="year" class="width" id="year">
+                        </td>
+                        <td><label>Percentage:</label></td>
+                        <td><input type="text" name="percentage" class="width" id="percentage"> 
+                        </td>
+                    </tr>`
+            table.appendChild(tr)
+
+        }
+        function func2() {
+            var table = document.getElementById("tbl2");
+            var tr = document.createElement("tr");
+
+            tr.innerHTML = `  <tr id="tr2">
+                        <td><label>Company Name:</label></td>
+                        <td><input type="text" name="company" class="width" id="company"></td>
+                        <td><label>Designation:</label></td>
+                        <td><input type="text" name="designation2" class="width" id="designation"><td>
+                        <td><label>Start date:</label></td>
+                        <td><input type="date" name="startdte" class="width" id="start"></td>
+                        <td><label>End date:</label></td>
+                        <td><input type="date" name="enddte" class="width" id="end"></td>
+                    </tr>
+`
+            table.appendChild(tr)
+
+        }
+    </script>
+
+</html>

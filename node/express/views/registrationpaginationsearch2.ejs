@@ -1,0 +1,310 @@
+<!-- ***************ejs file**************** -->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Itim&family=Kalam:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    .search {
+        font-size: 0.45cm;
+        font-family: 'Courier Prime', monospace;
+        font-weight: 580;
+        width: 65%;
+    }
+
+    .go {
+        font-size: 0.45cm;
+        font-family: 'Courier Prime', monospace;
+        font-weight: 580;
+        width: 7%;
+    }
+
+    .multi {
+        font-size: 0.45cm;
+        font-family: 'Courier Prime', monospace;
+        font-weight: 580;
+        width: 6%;
+    }
+
+    .tbl2 {
+        font-size: 0.3cm;
+        background-color: #D7E9B9;
+        /* width: 100pt; */
+
+    }
+
+    .tbl1 {
+        height: fit-content;
+        width: 90%;
+        text-align: center;
+        font-size: 0.4cm;
+        background-color: #D7E9B9;
+        font-family: 'Courier Prime', monospace;
+    }
+
+    tr {
+        font-size: 0.4cm;
+    }
+
+    b {
+        background-color: lawngreen;
+        color: red;
+    }
+
+    body {
+        background-color: #F5F5F5;
+    }
+</style>
+
+<body>
+    <center>
+
+        <form action="/search" method="get">
+            <input id="search" type="text" name="text" placeholder="search here" class="search">
+
+            <input type="submit" value="Go" class="go">
+            <select name="multi" class="multi">
+                <option value="and">AND</option>
+                <option value="or">OR</option>
+            </select>
+        </form>
+        <br>
+
+        <table border="2" id="1" class="tbl1">
+            <tr>
+                <td>*</td>
+                <td>fname</td>
+                <td>^</td>
+                <td>lname</td>
+                <td>@</td>
+                <td>address</td>
+                <td>#</td>
+                <td>city</td>
+                <td>$</td>
+                <td>pincode</td>
+                <td>~</td>
+                <td>state</td>
+                <td>!</td>
+                <td>num</td>
+                <td>_</td>
+                <td>email</td>
+                <td>?</td>
+                <td>gender</td>
+                <td>+</td>
+                <td>relationlist</td>
+                <td>%</td>
+                <td>dob</td>
+                <td>-</td>
+                <td>createtime</td>
+            </tr>
+
+        </table>
+        <br>
+        <table border="2" id="2" class="tbl2">
+
+            <tr>
+                <td>
+                    <p>select</p>
+                </td>
+                <td>id</td>
+                <td>firstname</td>
+                <td>lastname</td>
+                <td>address</td>
+                <td>city</td>
+                <td>pincode</td>
+                <td>state</td>
+                <td>contact</td>
+                <td>mail</td>
+                <td>gender</td>
+                <td>relationlist</td>
+                <td>dob</td>
+                <td>designation</td>
+                <td>createtime</td>
+            </tr>
+            <% data.forEach(entry=> { %>
+                <tr id="<%=entry.c_id%>">
+                    <td>
+                        <input type="checkbox" name="selectedrows" value="<%=entry.c_id%>" class="selectedrows">
+                    </td>
+                    <td>
+                        <%=entry.c_id%>
+                    </td>
+                    <td>
+                        <%=entry.fname%>
+                    </td>
+                    <td>
+                        <%=entry.lname%>
+                    </td>
+                    <td>
+                        <%=entry.address%>
+                    </td>
+                    <td>
+                        <%=entry.city%>
+                    </td>
+                    <td>
+                        <%=entry.zipcode%>
+                    </td>
+                    <td>
+                        <%=entry.state%>
+                    </td>
+                    <td>
+                        <%=entry.contact%>
+                    </td>
+                    <td>
+                        <%=entry.email%>
+                    </td>
+                    <td>
+                        <%=entry.gender%>
+                    </td>
+                    <td>
+                        <%=entry.relationship_status%>
+                    </td>
+                    <td>
+                        <%=entry.dob%>
+                    </td>
+                    <td>
+                        <%=entry.disignation%>
+                    </td>
+                    <td>
+                        <%=entry.createtime%>
+                    </td>
+                    <td>
+                        <p id='<%=entry.c_id%>' name="deleteid" onclick="dlt(this.id)">Delete</p>
+                    </td>
+                </tr>
+                <%})%>
+
+        </table>
+
+        <%for (var i=1; i<=count.length;i++){%>
+            <% if(curpage==i){ %>
+            <span id='<%=i%>' onclick="pagination(this)"><%=i%></span>
+            <% } else{ %>
+            
+            <span id='<%=i%>' onclick="pagination(this)"><%=i%></span>
+            <% } }%>
+
+                            
+
+        <p id="deleteBtn">Delete All</p>
+
+
+
+        <center><a href="http://localhost:9002/">fill Another response</a></center>
+    </center>
+</body>
+<script>
+    function dlt(id) {
+
+        console.log(id)
+
+        if (confirm('are you sure to delete?') == true) {
+            var deleteid = id
+            fetch(`http://localhost:9002/delete?deleteid=${deleteid}`);
+            document.getElementById(id).style.display="none"
+            alert('your data delete')
+        }
+        else {
+            alert('your data not delete')
+        }
+    }
+
+    const deletebtn = document.getElementById("deleteBtn");
+    deletebtn.addEventListener('click', () => {
+        var checkeddata = [];
+        var checkids = document.getElementsByClassName("selectedrows");
+        for (let i = 0; i < checkids.length; i++) {
+            if (checkids[i].checked) {
+                checkeddata.push(checkids[i].value);
+            }
+        }
+        const shoulddelete = confirm(`Are you sure you want to delete rows `);
+        if (!shoulddelete) { return; }
+        checkeddata.forEach(id => {
+            document.getElementById(id).style.display = "none";
+        });
+      
+        const response = fetch(`http://localhost:9002/deleteall?d_id=${checkeddata}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                checkeddata
+            })
+        }).then(res => res.json())
+        .then(data => {
+            if(data){
+                alert("Deleted successfully!");
+            }
+        })
+    })
+
+
+
+    function pagination(p) {
+    console.log('demo')
+        var id = p.id
+        console.log(id)
+        var ajax = 'true';
+        fetch(`/page?num=${id}&ajax=${ajax}`)
+            .then((res) =>{return res.json()})
+            .then((data) => {
+                console.log(data)
+                var tbl = document.getElementById('2')
+                temp = '';
+                temp += `<tr>
+                    <td>select</td>
+             <td>ID</td>
+            <td>FIRSTNAME</td>
+            <td>LASTNAME</td>
+            <td>address</td>
+            <td>city</td>
+            <td>pincode</td>
+            <td>state</td>
+            <td>contact</td>
+            <td>mail</td>
+            <td>gender</td>
+            <td>relationlist</td>
+            <td>dob</td>
+            <td>designation</td>
+            <td>createtime</td>
+            <td>delete</td>
+        </tr>`;
+                for (var i = 0; i < data.length; i++){
+                    temp += `<tr id='${i}'>
+                         <td>
+                        <input type="checkbox" name="selectedrows" value="${i}" class="selectedrows">
+                    </td>
+            <td>${data[i].c_id}</td>
+            <td>${data[i].fname}</td>
+            <td>${data[i].lname}</td>
+            <td>${data[i].address}</td>
+            <td>${data[i].city}</td>
+            <td>${data[i].zipcode}</td>
+            <td>${data[i].state}</td>
+            <td>${data[i].contact}</td>
+            <td>${data[i].email}</td>
+            <td>${data[i].gender}</td>
+            <td>${data[i].relationship_status}</td>
+            <td>${data[i].dob}</td>
+            <td>${data[i].disignation}</td>
+            <td>${data[i].createtime}</td>
+            <td><p id='${i}' name="deleteid" onclick="dlt(${i})">Delete</p></td>
+        </tr>`
+            }
+    tbl.innerHTML = temp;
+})
+}
+</script>
+
+</html>

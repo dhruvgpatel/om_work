@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<style>
+    table {
+        border-style: solid;
+        width: fit-content;
+        border-color: rgb(177, 40, 154);
+        height: 50%;
+        width: 50%;
+    }
+
+    td,
+    tr {
+        align-content: center;
+        width: 5cm;
+    }
+
+    #rst {
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #submit {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    .bold {
+        color: red;
+        font-family: "georgia", Times, serif;
+        font-weight: 500;
+       
+    }
+
+    #txtarea {
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+       
+    }
+
+    .width {
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+        border: 1cm;
+        background-color:rgb(220, 236, 243);
+        
+    }
+
+    /*body {
+        background: rgb(178, 196, 36);
+        background: linear-gradient(90deg, rgba(178, 196, 36, 1) 15%, rgba(36, 196, 110, 1) 45%, rgba(0, 212, 255, 1) 90%);
+    }*/
+</style>
+
+<body>
+    <center>
+        <form name="frm" onsubmit="fun()" >
+            <table border="2" style="background-color:rgba(240, 230, 140, 0.87);">
+                <tr>
+                    <td colspan="2" align="center">
+                        <h1 style="font-family: Cursive; ">Training Form</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Name:</label></td>
+                    <td><input type="text" name="name" class="width"> <br> <span id="1" class="bold" ></span></td>
+                </tr>
+                <tr>
+                    <td><label>password:</label></td>
+                    <td><input type="text" name="pwd" class="width"> <br> <span id="2" class="bold" ></span></td>
+                </tr>
+                <tr>
+                    <td><label>Number:</label></td>
+                    <td><input type="text" name="num" class="width"> <br> <span id="3" class="bold" ></span></td>
+                </tr>
+                <tr>
+                    <td><label>email:</label></td>
+                    <td><input type="text" name="email" class="width"> <br> <span id="4" class="bold" ></span></td>
+                </tr>
+                <tr>
+                    <td><label> Choose your Favourite game:</label></td>
+                    <td><select id="list" name="list">
+                            <option value=""> Choose any one</option>
+                            <option value="cricket">Cricket</option>
+                            <option value="football">Football</option>
+                            <option value="Kho-kho">Kho-kho</option>
+                            <option value="vollyball">vollyball</option>
+                        </select>
+                        <br> <span id="5" class="bold"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label> Choose your gender:</label></td>
+                    <td><input type="radio" name="gender" value="male"> MALE <br>
+                        <input type="radio" name="gender" value="female"> FEMALE
+                        <br> <span id="6" class="bold"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label> Suggession box:</label></td>
+                    <td><textarea name="txtarea" id="txtarea" class="width"></textarea>
+                        <br>
+                        <br> <span id="8" class="bold"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>select your languages:</td>
+                    <td>
+                        <input type="checkbox" id="c" value="c" name="ckb"> c<br>
+                        <input type="checkbox" id="Java" value="Java" name="ckb"> Java<br>
+                        <input type="checkbox" id="Python" value="Python" name="ckb"> Python<br>
+                        <input type="checkbox" id="Javascript" value="Javascript" name="ckb"> Javascript<br>
+                        <input type="checkbox" id="Html" value="html" name="ckb"> Html<br>
+                        <br> <span id="7" class="bold"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="reset" id="rst" value="reset" style="border-color: black; background-color: rgb(255, 127, 127);"> <input type="submit"
+                            id="submit" value="submit" style="border-color: black; background-color: rgb(127, 255, 148);"></td>
+
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+<script src="form.js"></script>
+
+</html>

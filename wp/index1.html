@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head><title>table events</title></head>
+<style>
+    table {
+        height: 10cm;
+
+        border-style: solid;
+        width: fit-content;
+        border-color: rgb(81, 255, 0);
+    }
+
+    td,
+    tr {
+
+        align-items: center;
+        width: 5cm;
+    }
+</style>
+
+<body>
+    <center>
+        <table border="2" id="t">
+
+            <tr id="a">
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+
+            </tr>
+            <tr id="b">
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr id="c">
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+
+        </table>
+    </center>
+</body>
+<script>
+    t.onmouseover = function (event) {
+        let target = event.target;
+        target.style.background = 'yellow';
+    };
+    
+    t.onmouseout = function (event) {
+        let target = event.target;
+        target.style.background = '';
+    };
+</script>
+
+</html>

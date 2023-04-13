@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    table {
+        text-align: center;
+        height: 8cm;
+        width: 20cm;
+    }
+</style>
+
+<body>
+    <center>
+        <%for (i=0;i<=6;i++){%>
+            <table border="2">
+                <tr>
+                    <td>id</td>
+                    <td>firstname</td>
+                    <td>lastname</td>
+                    <td>mail</td>
+                    <td>mobile</td>
+                    <td>dob</td>
+
+                </tr>
+                <% data[i].forEach(entry=> { %>
+                    <tr>
+
+                        <td>
+                            <%=entry.id%>
+                        </td>
+                        <td>
+                            <%=entry.fname%>
+                        </td>
+                        <td>
+                            <%=entry.lname%>
+                        </td>
+                        <td>
+                            <%=entry.mail%>
+                        </td>
+                        <td>
+                            <%=entry.mobile%>
+                        </td>
+                        <td>
+                            <%=entry.dob%>
+                        </td>
+                    </tr>
+                    <%})%>
+            </table>
+            <hr>
+            <%}%>
+    </center>
+</body>
+
+</html>

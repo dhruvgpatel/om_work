@@ -1,0 +1,231 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.container2 {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+}
+
+.header {
+
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.contains {
+
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+   
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+}
+
+li {
+    list-style-type: none;
+    padding-left: 40px;
+}
+
+.side{
+   margin-top: 50px;
+}
+
+
+.headerbtn {
+    border: 3px solid #1565d8;
+    padding: 5px;
+    font-size: 17px;
+    border-radius: 5px;
+    background-color: white;
+    color: #1565d8;
+}
+
+.icon1 {
+    margin-top: 50px;
+    color: rgba(192, 192, 192, 0.952);
+}
+
+.img1 {
+    width: 100%
+}
+
+ul {
+    display: flex;
+}
+
+nav {
+    margin-left: auto;
+}
+
+.logo {
+    padding-top: 10px;
+}
+
+section {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+
+/* p {
+    font-size: 20px;
+} */
+
+h2 {
+    font-size: 40px;
+}
+
+.section1btn {
+
+
+    padding: 9px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #20262E;
+    color: white;
+
+}
+
+.btndiv {
+    margin-top: 50px;
+}
+
+
+
+
+
+
+
+
+h3 {
+
+    font-weight: 300;
+    font-size: xx-large;
+}
+
+
+.footer {
+    background-color: #20262E;
+}
+
+.silver {
+    color: rgba(192, 192, 192, 0.767);
+}
+
+.icon {
+    margin-left: 5px;
+}
+
+
+.column {
+    width: calc(100% / 3);
+    padding: 0 16px;
+
+}
+
+.clmsec1 {
+    width: calc(100% / 2);
+    padding: 0 16px;
+}
+.clmsec2{
+
+    width: calc(100% / 5);
+    padding: 0 16px;
+}
+
+.raw {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    margin-top: 30px;
+  
+}
+.rawcont {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.content {
+    padding: 16px;
+    /* border: 1px solid blue; */
+    border-radius: 7px;
+
+}
+.contentborder {
+    padding: 16px;
+    border: 1px solid gray;
+    border-radius: 7px;
+    display: flex;
+    margin-top: 10px;
+
+}
+
+
+.right{
+   margin-top: -15px;
+   padding-left: 10px;
+}
+
+
+.colorgreen {
+    color: green;
+}
+
+.upermargin {
+
+    margin-top: 40px;
+}
+
+.cont1 {
+    padding-left: 30px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+
+.logo1 {
+    color: white;
+    font-size: xx-large;
+}
+
+.logo3 {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.logo3 i {
+    color: rgb(0, 204, 255);
+}
+
+
+.box {
+    max-width: 1170px;
+    margin: 0 auto;
+
+}

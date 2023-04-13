@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width='', initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Itim&family=Kalam:wght@700&display=swap" rel="stylesheet">
+    <title>table increse</title>
+</head>
+
+<style>
+    #omx {
+
+        font-size: larger;
+        font-weight: 500;
+        text-align: center;
+        border-radius: 5%;
+        background-color: #F49D1A;
+        color: #CC3636;
+    }
+
+    #omy {
+        height: 15cm;
+        width: 15cm;
+
+    }
+
+    .omz {
+        font-size: larger;
+        text-align: center;
+        border-color: #FEFBF6;
+        border-radius: 5%;
+        font-weight: 500;
+        color: aqua;
+        height: 0.5cm;
+        width: 0.5cm;
+    }
+
+    .omi {
+        font-size: larger;
+        text-align: center;
+        border-color: #FEFBF6;
+        border-radius: 5%;
+        font-weight: 500;
+        color: #CC3636;
+        opacity: 0.80;
+        height: 0.5cm;
+        width: 0.5cm;
+    }
+
+    body {
+        background-color: #050505;
+    }
+
+    p {
+        color: #81C6E8;
+        font-weight: 900;
+        font-size: 0.6cm;
+    }
+    h2{
+        color: #F55353;
+        font-family: 'Itim', cursive;
+font-family: 'Kalam', cursive;
+    }
+    .dark-mode {
+  background-color: white;
+  color: black;
+}
+   
+</style>
+
+<body>
+    <br>
+  
+       
+<center>
+<h2>KUKU CUBE</h2>
+            <table id='omy' border="5" name="tbl">
+                <tr>
+                    <td id="omx" onclick="f() ,starttimer(30)" id = 'omi'></td>
+                </tr>
+            </table>
+            <br>
+            <table border="3">
+                <tr>
+                    <td>
+                        <p id="timer">Times Left:</p>
+                    </td>
+                    <td>
+                        <p id="omop">Count: 0</p>
+                    </td>
+                </tr>
+            </table>
+            <button onclick="fun()">LIGHT</button>
+        </center>
+       
+   
+</body>
+<script>
+    let omcnt = 2;
+    let counterom = 0;
+   
+    
+    function fun(){
+     
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+    function f() {
+        
+        var omrandom = "#" + Math.floor(Math.random(0.1,1) * 16777215).toString(16);
+        console.log(omrandom);
+        let omraw = Math.floor(Math.random() * omcnt) + 1;
+        let omcolm = Math.floor(Math.random() * omcnt) + 1;
+        var omstring = "";
+
+        
+        omstring += "<table border=4 id='tbl'>";
+            for (let i = 1; i <= omcnt; i++) {
+                omstring += "<tr>";
+                    for (let j = 1; j <= omcnt; j++) {
+                        if (omraw == i && omcolm == j) {
+                            omstring += "<td onclick='f()' id='omi' class = 'omi' style='background-color:" + omrandom + ";' ></td>";
+                        }
+                        else {
+                            omstring += "<td class='omz' style='background-color:" + omrandom + ";' ></td>";
+                        
+                        }
+                    }
+            omstring += "</tr>";
+
+        }
+        omstring += "</table>";
+        document.getElementById('omy').innerHTML = omstring;
+
+
+        omcnt++;
+        counterom++;
+        // opa = opa + 0.01;
+        document.getElementById('omop').innerHTML = "Count: " + counterom;
+
+
+    }
+    var omtime = document.getElementById("timer");
+
+    function starttimer(seconds) {
+        let omtimer = seconds;
+        const interval = setInterval(() => {
+            omtimer--;
+            omtime.innerHTML = "Times left:" + omtimer
+
+            if (omtimer <= 0) {
+                clearInterval(interval);
+                alert("times up. Your SCORE is: "+counterom);
+                window.location.reload();
+
+            }
+        }, 1000);
+    }
+
+</script>
+
+</html>

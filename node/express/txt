@@ -1,0 +1,89 @@
+<fieldset>
+    <legend> <b>technologies younknown</b></legend>
+    <% for(j=0;j<om6.length ;j++){ %>
+        <% var flag=0 %>
+            <table id="parent_tech">
+                <% for(var i=0 ; i<technologies.length ; i++){ %>
+                    <%if(technologies[i].option_name==om6[j].technology_name) {%>
+                        <% flag=1 %>
+
+                            <tr id="child_tech">
+
+                                <td><input type="checkbox" name="technologies" id="<%=technologies[i].option_name %>"
+                                        value="<%=technologies[i].option_name %>"
+                                        <%if(technologies[i].option_name==om6[j].technology_name){%>checked<%}%>></td>
+                                <td>
+                                    <%=technologies[i].option_name %>
+                                </td>
+                                <%if(om6[j].tech_expertise=="beginer"){%>
+
+                                    <td><input type="radio" name="<%=technologies[i].option_name %>" value="beginer"
+                                            checked="checked"></td>
+                                    <td>beginer</td>
+                                    <td><input type="radio" name="<%=technologies[i].option_name %>" value="mideator"></td>
+                                    <td>mideator</td>
+                                    <td><input type="radio" name="<%=technologies[i].option_name %>" value="expert"></td>
+                                    <td>expert</td>
+
+                                    <%}else if(om6[j].tech_expertise=="mideator" ){%>
+                                        <td><input type="radio" name="<%=technologies[i].option_name %>" value="beginer"></td>
+                                        <td>beginer</td>
+                                        <td><input type="radio" name="<%=technologies[i].option_name %>" value="mideator"
+                                                checked="checked"></td>
+                                        <td>mideator</td>
+                                        <td><input type="radio" name="<%=technologies[i].option_name %>" value="expert"></td>
+                                        <td>expert</td>
+                                        <%}else if(om6[j].tech_expertise=="expert" ){%>
+                                            <td><input type="radio" name="<%=technologies[i].option_name %>" value="beginer">
+                                            </td>
+                                            <td>beginer</td>
+                                            <td><input type="radio" name="<%=technologies[i].option_name %>" value="mideator">
+                                            </td>
+                                            <td>mideator</td>
+                                            <td><input type="radio" name="<%=technologies[i].option_name %>" value="expert"
+                                                    checked="checked"></td>
+                                            <td>expert</td>
+
+                                            <%}else}%>
+                                            <td><input type="checkbox" name="technologies" id="<%=technologies[i].option_name %>"
+                                                value="<%=technologies[i].option_name %>"></td>
+                                        <td>
+                                            <%=technologies[i].option_name %>
+                                        </td>
+                                        <td><input type="radio" name="<%=technologies[i].option_name %>" value="beginer">
+                                        </td>
+                                        <td>beginer</td>
+                                        <td><input type="radio" name="<%=technologies[i].option_name %>" value="mideator">
+                                        </td>
+                                        <td>mideator</td>
+                                        <td><input type="radio" name="<%=technologies[i].option_name %>" value="expert">
+                                        </td>
+                                        <td>expert</td>
+                            </tr>
+                            <% }%>
+                                <% }%>
+                                    <% if(flag=0){%>
+                                        <tr id="child_tech">
+
+                                            <td><input type="checkbox" name="technologies" id="<%=technologies[i].option_name %>"
+                                                    value="<%=technologies[i].option_name %>"></td>
+                                            <td>
+                                                <%=technologies[i].option_name %>
+                                            </td>
+                                            <td><input type="radio" name="<%=technologies[i].option_name %>" value="beginer">
+                                            </td>
+                                            <td>beginer</td>
+                                            <td><input type="radio" name="<%=technologies[i].option_name %>" value="mideator">
+                                            </td>
+                                            <td>mideator</td>
+                                            <td><input type="radio" name="<%=technologies[i].option_name %>" value="expert">
+                                            </td>
+                                            <td>expert</td>
+
+
+
+                                        </tr>
+                                        <% }%>
+            </table>
+            <% }%>
+</fieldset>

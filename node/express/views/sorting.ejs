@@ -1,0 +1,74 @@
+<!-- ***************ejs file**************** -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     #2{
+        text-align: center;
+     height: 6cm;
+     width: 20cm;
+     font-size:0.25cm;
+    }
+    b{
+        background-color: lawngreen;
+        color: red;
+    }
+</style>
+<body>
+     <% if(odrtype=='DESC'){odrtype='ASC'}else{ odrtype='DESC'}%> 
+    <center>
+        <!-- <a href="http://localhost:8091/?num=1&curorder=<%=cur_order%>&odrtype=ASC">ASC</a>
+        <a href="http://localhost:8091/?num=1&curorder=<%=cur_order%>&odrtype=DESC">DESC</a> -->
+    <table border="2" id="2">
+        <tr>
+            <td><a href="http://localhost:8080/sorting?num=1&curorder=id&odrtype=<%=odrtype%>">ID</a></td>
+            <td><a href="http://localhost:8080/sorting?num=1&curorder=fname&odrtype=<%=odrtype%>">FIRSTNAME</a></td>
+            <td><a href="http://localhost:8080/sorting?num=1&curorder=lname&odrtype=<%=odrtype%>">LASTNAME</a></td>
+            <td><a href="http://localhost:8080/sorting?num=1&curorder=mail&odrtype=<%=odrtype%>">MAIL</a></td>
+            <td><a href="http://localhost:8080/sorting?num=1&curorder=mobile&odrtype=<%=odrtype%>">MOBILE</a></td>
+            <td><a href="http://localhost:8080/sorting?num=1&curorder=dob&odrtype=<%=odrtype%>">DOB</a></td>
+        </tr>
+        <% data[1].forEach(entry=> { %>
+        <tr>
+            <td><%=entry.id%></td>
+            <td><%=entry.fname%></td>
+            <td><%=entry.lname%></td>
+            <td><%=entry.mail%></td>
+            <td><%=entry.mobile%></td>
+            <td><%=entry.dob%></td>
+        </tr>
+        <%})%>
+
+    </table>
+  <% if(odrtype=='DESC'){odrtype='ASC'}else{ odrtype='DESC'}%> 
+    <% if(curpage == 1){ %>
+        <a href="#">⇚prev</a>
+      <% } else{ %>  
+        <a href="/sorting?num=<%=curpage-1%>&curorder=<%=cur_order%>&odrtype=<%=odrtype%>">⇚prev</a>
+     <% } %>
+    
+    <%for (i=1; i<=count;i++){%>
+        <% if(curpage == i){ %>
+           <a href="#"><b><%=i%></b></a>
+          <% } else{ %>  
+            <a href="/sorting?num=<%=i%>&curorder=<%=cur_order%>&odrtype=<%=odrtype%>"><%=i%></a>
+         <% } %>
+        
+    <%}%>
+    
+    <% if(curpage == count){ %>
+        <a href="#">next⇛</a>
+        <% } else{ %>  
+            <a href="/sorting?num=<%=curpage+1%>&curorder=<%=cur_order%>&odrtype=<%=odrtype%>">next⇛</a>
+       <% } %>
+    
+       <br>
+       <td><a href="http://localhost:8080/home">home page</a></td>
+</center>
+</body>
+</html>

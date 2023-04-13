@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tbl1">
+        <tr id="tr">
+
+            <td><label> Education Courses:</label></td>
+            <td><select id="courselist1" name="courselist1">
+                    <option value=""> Choose any one</option>
+                    <option value="10th">10th</option>
+                    <option value="12th">12th</option>
+                    <option value="be">BE</option>
+                    <option value="me">ME</option>
+                </select>
+
+            </td>
+            <td><label>Institution Name:</label></td>
+            <td><input type="text" name="institute1" class="width"> <br> <span id="institute1"
+                    class="bold"></span></td>
+
+            <td><label>Passing Year:</label></td>
+            <td><input type="text" name="year1" class="width"> <br> <span id="year1" class="bold"></span>
+            </td>
+            <td><label>Percentage:</label></td>
+            <td><input type="text" name="percent1" class="width"> <br> <span id="percent1"
+                    class="bold"></span></td>
+
+        </tr>
+    </table>
+    <input type="button" value="add" onclick="func1()">
+</body>
+    <script>
+        function func1(){
+        var table = document.getElementById("tbl1");
+        var tr = document.createElement("tr");
+    tr.innerHTML =`<td><label> Education Courses:</label></td>
+                            <td><select id="courselist1" name="courselist1">
+                                    <option value=""> Choose any one</option>
+                                    <option value="10th">10th</option>
+                                    <option value="12th">12th</option>
+                                    <option value="be">BE</option>
+                                    <option value="me">ME</option>
+                                </select>
+    
+                            </td>
+                            <td><label>Institution Name:</label></td>
+                            <td><input type="text" name="institute1" class="width"> <br> <span id="institute1"
+                                    class="bold"></span></td>
+    
+                            <td><label>Passing Year:</label></td>
+                            <td><input type="text" name="year1" class="width"> <br> <span id="year1" class="bold"></span>
+                            </td>
+                            <td><label>Percentage:</label></td>
+                            <td><input type="text" name="percent1" class="width"> <br> <span id="percent1"
+                                    class="bold"></span></td>
+    
+    
+    
+    
+    
+    
+    `
+    table.appendChild(tr)
+    }
+</script>
+
+</html>

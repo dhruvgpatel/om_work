@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exel format</title>
+</head>
+<body>
+    <center>
+    <div>
+        <form method="post" action="/saveall">
+        <table id="tbl1" border="2">
+                <tr>
+        
+                    <td>first name</td>
+                    <td>last name</td>
+                    <td>mobile</td>
+                    <td>mail</td>
+                    <td>edit data</td>
+    
+                </tr>
+                <% data.forEach(entry=> { %>
+                    <tr id="tr1">
+                    <td hidden><input type='text' value='<%=entry.id%>' name='id' > </td>
+                    <td><input type="text" value='<%=entry.fname%>' id="fname<%=entry.id%>" name="fname"></td>
+                    <td><input type="text" value='<%=entry.lname%>' id="lname<%=entry.id%>" name="lname" ></td>
+                    <td><input type="text" value='<%=entry.mobile%>' id="mobile<%=entry.id%>" name="mobile"></td>
+                    <td><input type="text" value='<%=entry.mail%>' id="mail<%=entry.id%>" name="mail"></td>
+                    <td><p onclick="save('<%=entry.id%>')">save</p></td>
+                </tr>
+                <%})%>
+               
+                <br>
+            </table>
+            <br>
+            <center><label>Add Another details: -> </label><input type="button" name="num"
+                                    onclick="func1()" value="➕"></center>
+            <br>
+             <center><input type="submit" value='saveall'></center>
+     
+            </form>
+         
+
+                                      
+
+    </div>
+</center>
+</body>
+<script>
+   
+
+   var a=0;
+
+    function func1() {
+        a+=1;
+        var table = document.getElementById("tbl1");
+        var tr = document.createElement("tr");
+        
+        tr.innerHTML = `  
+            <tr id="tr1">
+
+                <td hidden><input type='text' value='abc' id="${a}id" name='id' > </td>
+                <td><input type="text" name="fname"  id="${a}fname" ></td>
+                <td><input type="text" name="lname" id="${a}lname" ></td>
+                <td><input type="text" name="mobile" id="${a}mobile" ></td>
+                <td><input type="text" name="mail" id="${a}mail" ></td>
+                <td><p onclick="add(${a})">save</p></td>
+            </tr>
+            
+`
+        table.appendChild(tr)   
+        
+    }
+    function add(id){
+        var fname = document.getElementById(`${id}fname`).value;
+        var lname = document.getElementById(`${id}lname`).value;
+        var  mobile = document.getElementById(`${id}mobile`).value;
+        var mail = document.getElementById(`${id}mail`).value;
+        
+        
+        fetch(`http://localhost:9091/add?fname=${fname}&lname=${lname}&mobile=${mobile}&mail=${mail}`).then((res)=>res.json()).then((data)=>{
+            console.log(data.lastid);
+            document.getElementById(`${id}id`).setAttribute('value',data.lastid);
+        })
+    }
+        async function save(id) {
+            var id = id;
+            var fname = document.getElementById(`fname${id}`).value;
+            var lname = document.getElementById(`lname${id}`).value;
+            var mobile = document.getElementById(`mobile${id}`).value;
+            var mail = document.getElementById(`mail${id}`).value;
+            fetch(`http://localhost:9091/save?id=${id}&fname=${fname}&lname=${lname}&mobile=${mobile}&mail=${mail}`);
+        }
+    
+
+   
+
+</script>
+</html>

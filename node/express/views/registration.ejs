@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration page</title>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="section">
+
+
+            <div>
+                <img src="/images/logo.svg">
+            </div>
+
+            <div>
+                <form action="/data" method="post">
+                    <div class="welcome">
+                        <h2>welcome Back</h2>
+                    </div>
+                    <div class="compo">
+                        <div><label>name:</label></div>
+                        <div><input type="text" name="name" id="name" class="insert" onchange="checkname()" required>
+                        </div>
+                        <div>
+                            <p id="1"></p>
+                        </div>
+                    </div>
+
+                    <div class="compo">
+                        <div><label>mail:</label></div>
+                        <div><input type="text" name="mail" id="mail" class="insert" onchange="checkmail()" required>
+                        </div>
+                        <div>
+                            <p id="2"></p>
+                        </div>
+                    </div>
+
+                    <div class="compo">
+                        <div><label>password:</label></div>
+                        <div><input type="password" name="pwd" id="pwd" class="insert" onchange="checkpwd()" required></div>
+                        <div>
+                            <p id="3"></p>
+                        </div>
+                    </div>
+
+                    <div class="compo">
+                        <div><label>Confirm password:</label>
+                            <div><input type="password" name="repwd" id="repwd" class="insert" onchange="checkrepwd()"
+                                    required></div>
+                            <div>
+                                <p id="4"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="button">
+                            <!-- <p onclick="verify()" class="submit">Sign up</p> -->
+                            <input type="submit" value="sign up" class="signup" id="sub" disabled>
+                        </div>
+
+                        <div class="footer"><span>already have an account?</span><a href="/login" value="login"
+                                class="anchor">login here</a></div>
+
+                </form>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+
+
+    
+
+    function checkname() {
+        document.getElementById("sub").disabled = true;
+        var name = document.getElementById('name').value;
+
+        if (name == "") {
+            document.getElementById("1").innerHTML = "** name can not empty";
+            return false;
+        }
+        else if (name.length < 2) {
+            document.getElementById("1").innerHTML = "** Please enter valid name";
+            return false;
+        }
+        else if (!isNaN(name)) {
+            document.getElementById('1').innerHTML = "** name contain only alphabets";
+            return false;
+        }
+        else {
+            document.getElementById("sub").disabled = false;
+            document.getElementById("1").innerHTML = "";
+            return true;
+
+
+        }
+    }
+
+
+    function checkmail() {
+        var mail = document.getElementById('mail').value;
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        fetch(`/finduser?mail=${mail}`)
+            .then(res => res.json())
+            .then(data => {
+
+                console.log(data)
+                if (mail == "") {
+                    document.getElementById("2").innerHTML = "** mail can not empthy";
+
+                }
+
+                else if (!reg.test(mail)) {
+                    document.getElementById('2').innerHTML = "** please enter valid mail";
+
+                }
+                else if (data.exists) {
+                    document.getElementById('2').innerHTML = "** Email Already Exist";
+                }
+
+                else {
+                    document.getElementById('2').textContent = '';
+
+                }
+            })
+            .catch(err => console.log(err));
+    }
+
+
+    function checkpwd() {
+        document.getElementById("sub").disabled = true;
+
+        var pwd = document.getElementById('pwd').value;
+        var paswd = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+
+
+        if (!(paswd.test(pwd))) {
+            document.getElementById("3").innerHTML = "** password must contain latter digit and symbol "
+            return false;
+        }
+        else if (pwd.length > 14) {
+            document.getElementById("3").innerHTML = "** too large "
+            return false;
+        }
+        else if (pwd.length < 6) {
+            document.getElementById("3").innerHTML = "** too big "
+            return false;
+        }
+
+        else {
+            document.getElementById("sub").disabled = false;
+            document.getElementById("3").innerHTML = "";
+            return true;
+
+
+        }
+    }
+
+    function checkrepwd() {
+        document.getElementById("sub").disabled = true;
+        var pwd = document.getElementById('pwd').value;
+        var repwd = document.getElementById('repwd').value;
+
+        if (pwd != repwd) {
+            document.getElementById("4").innerHTML = "** password must be same !"
+            return false;
+        }
+        else {
+            document.getElementById("sub").disabled = false;
+            document.getElementById("4").innerHTML = "";
+            return true;
+        }
+    }
+</script>
+
+</html>

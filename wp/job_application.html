@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOB-APPLICATION-FORM</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<style>
+    table {
+        border-style: solid;
+        width: fit-content;
+        border-color: black;
+        height: 100%;
+        width: 100%;
+    }
+
+
+    td {
+        align-content: center;
+        width: 0cm;
+    }
+
+    tr {
+        align-content: center;
+        width: 5cm;
+    }
+
+    #rst {
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #submit {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    .bold {
+        color: red;
+        font-family: "georgia", Times, serif;
+        font-weight: 500;
+
+    }
+
+    #txtarea {
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+
+    }
+
+    .width {
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+        border: 1cm;
+        background-color: rgb(220, 236, 243);
+
+    }
+
+    h3 {
+        color: #DC0000;
+    }
+
+    body {
+        background: rgb(178, 196, 36);
+        background: linear-gradient(90deg, rgba(178, 196, 36, 1) 15%, rgba(36, 196, 110, 1) 45%, rgba(0, 212, 255, 1) 90%);
+    }
+</style>
+
+<body>
+    <center>
+        <form onsubmit="return fun()" name="frm">
+            <fieldset>
+                <table border="2" style="background-color:rgba(240, 230, 140, 0.87);">
+                    <tr>
+                        <td colspan="8" align="center">
+                            <h1 style="font-family: Cursive; ">JOB-APPLICATION-FORM</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="8">
+                            <h3 style="font-family: Cursive; ">➺ Basic Details</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>First Name:</label></td>
+                        <td><input type="text" name="name" class="width"> <br> <span id="fn" class="bold"></span></td>
+                        <td><label>Last Name:</label></td>
+                        <td><input type="text" name="pwd" class="width"> <br> <span id="ln" class="bold"></span></td>
+
+                        <td><label>Address:</label></td>
+                        <td><input type="text" name="pwd" class="width"> <br> <span id="add" class="bold"></span></td>
+                        <td><label>City:</label></td>
+                        <td><input type="text" name="email" class="width"> <br> <span id="city" class="bold"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label>Pin code:</label></td>
+                        <td><input type="text" name="pinjcode" class="width"> <br> <span id="pin" class="bold"></span>
+                        </td>
+                        <td><label> State:</label></td>
+                        <td><select id="list" name="list">
+                                <option value=""> Choose any one</option>
+                                <option value="gujarat">gujarat</option>
+                                <option value="rajsthan">rajsthan</option>
+
+                            </select>
+
+
+                        <td><label>Phone Number:</label></td>
+                        <td><input type="text" name="num" class="width"> <br> <span id="num" class="bold"></span></td>
+                        <td><label>Email:</label></td>
+                        <td><input type="text" name="email" class="width"> <br> <span id="mail" class="bold"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td><label> Choose your gender:</label></td>
+                        <td><input type="radio" name="gender" value="male"> MALE
+                            <input type="radio" name="gender" value="female"> FEMALE
+                            <input type="radio" name="gender" value="other"> OTHER
+                            <br> <span id="gender" class="bold"></span>
+                        </td>
+
+                        <td><label> Relationship Status:</label></td>
+                        <td><select id="list" name="list">
+                                <option value=""> Choose any one</option>
+                                <option value="single">Single</option>
+                                <option value="married">Married</option>
+                            </select>
+                            <br> <span id="relationlist" class="bold"></span>
+                        </td>
+                        <td><label>Date Of Birth:</label></td>
+                        <td><input type="date" name="dob" class="width"> <br> <span id="dob" class="bold"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label> Designation:</label></td>
+                        <td><textarea name="txtarea" id="txtarea1" class="width"></textarea>
+                            <br>
+                            <br> <span id="designation" class="bold"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                </table>
+            </fieldset>
+
+            <!-- Education Details -->
+
+            <fieldset>
+                <table border="2" style="background-color:rgba(240, 230, 140, 0.87);" id="tbl1">
+
+                    <tr>
+                        <td colspan="8">
+                            <h3 style="font-family: Cursive; ">➺ Education Details</h3>
+                        </td>
+                    </tr>
+                    <tr id="tr1">
+                        <td><label> Education Courses:</label></td>
+                        <td><select id="courselist1" name="courselist1">
+                                <option value=""> Choose any one</option>
+                                <option value="10th">10th</option>
+                                <option value="12th">12th</option>
+                                <option value="be">BE</option>
+                                <option value="me">ME</option>
+                            </select>
+                        </td>
+                        <td><label>Institution Name:</label></td>
+                        <td><input type="text" name="institute1" class="width" id="institute1"> <br> <span
+                                id="institutename1" class="bold"></span></td>
+
+                        <td><label>Passing Year:</label></td>
+                        <td><input type="text" name="year1" class="width" id="year1"> <br> <span id="passyear1"
+                                class="bold"></span>
+                        </td>
+                        <td><label>Percentage:</label></td>
+                        <td><input type="text" name="percent1" class="width" id="percentage1"> <br> <span id="percent1"
+                                class="bold"></span></td>
+                    </tr>
+
+                </table>
+                <!-- <input type="button" value="add" onclick="func1()"> -->
+
+                <label>Add Another course details: -> </label><input type="button" name="num" onclick="func1()"
+                    value="➕">
+
+
+
+
+            </fieldset>
+
+            <!-- Experience Details -->
+
+            <fieldset>
+                <table border="2" style="background-color:rgba(240, 230, 140, 0.87);" id="tbl2">
+                    <tr>
+                        <td colspan="8">
+                            <h3 style="font-family: Cursive; ">➺ Experience Details</h3>
+                        </td>
+                    </tr>
+                    <tr id="tr2">
+                        <td><label>Company Name:</label></td>
+                        <td><input type="text" name="companyname" class="width" id="company1"> <br> <span id="companyname1"
+                                class="bold"></span>
+                        </td>
+                        <td><label>Designation:</label></td>
+                        <td><input type="text" name="designation" class="width" id="designation1"> <br> <span id="desig1"
+                                class="bold"></span>
+                        </td>
+                        <td><label>Start date:</label></td>
+                        <td><input type="date" name="startdte" class="width" id="start1"> <br> <span id="startdte1"
+                                class="bold"></span>
+                        </td>
+                        <td><label>End date:</label></td>
+                        <td><input type="date" name="enddte" class="width" id="end1"> <br> <span id="enddte1"
+                                class="bold"></span></td>
+                    </tr>
+
+                </table>
+                <label>Add Another course details: -> </label><input type="button" name="num" onclick="func2()"
+                    value="➕">
+            </fieldset>
+
+
+
+            <!-- languages Details -->
+            <fieldset>
+                <table border="2" style="background-color:rgba(240, 230, 140, 0.87);" id="tbl3">
+                    <tr>
+                        <td colspan="8">
+                            <h3 style="font-family: Cursive; ">➺ languages Details</h3>
+                        </td>
+                    </tr>
+
+
+                    <tr id="tr3">
+                        <td colspan="2">
+                            <label>Select your languages:</label>
+                        </td>
+                        <td colspan="2"><select id="language1" name="list">
+                                <option value=""> Choose any one</option>
+                                <option value="hindi">Hindi</option>
+                                <option value="english">English</option>
+
+                            </select>
+
+                        </td>
+                        <td colspan="2">
+                            <label>language abilities:</label>
+                        </td>
+                        <td colspan="2">
+                            <input type="checkbox" id="read1" value="read"> Read
+                            <input type="checkbox" id="write1" value="write"> Write
+                            <input type="checkbox" id="speak1" value="speak"> Speak
+
+
+                        </td>
+                    </tr>
+
+                </table>
+
+                <label>Add Another course details: -> </label><input type="button" name="num" onclick="func3()"
+                    value="➕">
+
+            </fieldset>
+            <!--Technologies  Details -->
+
+            <fieldset>
+                <table border="2" style="background-color:rgba(240, 230, 140, 0.87);" id="tbl4">
+
+                    <tr>
+                        <td colspan="8">
+                            <h3 style="font-family: Cursive; ">➺ Technologies Details</h3>
+                        </td>
+                    </tr>
+                    <tr id="tr4">
+                        <td>
+                            <label>Select your Technologies:</label>
+                        </td>
+                        <td><select id="technology1" name="list">
+                                <option value=""> Choose any one</option>
+                                <option value="js">Javascript</option>
+                                <option value="database">Database</option>
+
+                            </select>
+
+                        </td>
+
+                        <td><label> Choose your Expertise:</label></td>
+                        <td><input type="radio" name="expertise1" value="Beginer"> Beginer
+                            <input type="radio" name="expertise1" value="Mideator"> Mideator
+                            <input type="radio" name="expertise1" value="Expert"> Expert
+                            <br> <span id="6" class="bold"></span>
+                        </td>
+
+                    </tr>
+                </table>
+
+                <label>Add Another course details: -> </label><input type="button" name="num" onclick="func4()"
+                    value="➕">
+            </fieldset>
+            <!--References Details -->
+            <fieldset>
+                <table border="2" style="background-color:rgba(240, 230, 140, 0.87);">
+                    <td colspan="8">
+                        <h3 style="font-family: Cursive; ">➺ References Details</h3>
+
+                    </td>
+
+                    <tr>
+                    <tr>
+                        <td colspan="1">
+                            <h4>Person 1 details*</h4>
+                        </td>
+                        <td><label>Name:</label></td>
+                        <td><input type="text" name="pwd" class="width"> <br> <span id="name" class="bold"></span></td>
+                        <td><label>Relation:</label></td><br>
+                        <td><input type="text" name="email" class="width"> <br> <span id="relation" class="bold"></span>
+                        </td>
+                        <td><label>Contact number:</label></td>
+                        <td><input type="text" name="email" class="width"> <br> <span id="contact" class="bold"></span>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td colspan="1">
+                            <h4>Person 2 details*</h4>
+                        </td>
+                        <td><label>Name:</label></td>
+                        <td><input type="text" name="pwd" class="width"> <br> <span id="name2" class="bold"></span></td>
+                        <td><label>Relation:</label></td>
+                        <td><input type="text" name="email" class="width"> <br> <span id="relation2" class="bold"></span>
+                        </td>
+                        <td><label>Contact number:</label></td>
+                        <td><input type="text" name="email" class="width"> <br> <span id="contact2" class="bold"></span>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <!--pReferences Details -->
+            <fieldset>
+                <table border="2" style="background-color:rgba(240, 230, 140, 0.87);">
+                    <tr>
+                        <td colspan="8">
+                            <h3 style="font-family: Cursive; ">➺ Preferences Details</h3>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Prefered Location:</label></td><br>
+                        <td>
+                            <<select id="location1" name="Location1">
+                                <option value=""> Choose any one</option>
+                                <option value="ahmedabad">ahmedabad</option>
+                                <option value="surat">surat</option>
+                                </select>
+                        </td>
+                        <td><label>Department:</label></td>
+                        <td>
+                            <select id="department1" name="department1">
+                                <option value=""> Choose any one</option>
+                                <option value="hr">hr</option>
+                                <option value="devloper">devloper</option>
+                                </select>
+                        </td>
+                        <td><label>Current CTC:</label></td><br>
+                        <td><input type="text" name="email" class="width"> <br> <span id="currentctc" class="bold"></span>
+                        </td>
+                        <td><label>Expected CTC:</label></td>
+                        <td><input type="text" name="email" class="width"> <br> <span id="expectedctc" class="bold"></span>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+
+                        <td colspan="8" align="center"><input type="reset" id="rst" value="reset"
+                                style="border-color: black; background-color: rgb(255, 127, 127);">
+                            <input type="submit" id="submit" value="submit"
+                                style="border-color: black; background-color: rgb(127, 255, 148);">
+                        </td>
+
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </center>
+</body>
+<script>
+    var count1 = 2;
+    var count2 = 2;
+    var count3 = 2;
+    var count4 = 2;
+    function func1() {
+        var table = document.getElementById("tbl1");
+        var tr = document.createElement("tr");
+        if(count1<=5){
+        tr.innerHTML = `<tr id="tr1">
+                        <td><label> Education Courses:</label></td>
+                        <td><select id="courselist${count1}" name="courselist1">
+                                <option value=""> Choose any one</option>
+                                <option value="10th">10th</option>
+                                <option value="12th">12th</option>
+                                <option value="be">BE</option>
+                                <option value="me">ME</option>
+                            </select>
+                        </td>
+                        <td><label>Institution Name:</label></td>
+                        <td><input type="text" name="institute1" class="width" id="institute${count1}"> <br> <span id="institute1"
+                                class="bold"></span></td>
+                        <td><label>Passing Year:</label></td>
+                        <td><input type="text" name="year1" class="width" id="year${count1}"> <br> <span id="year1" class="bold"></span>
+                        </td>
+                        <td><label>Percentage:</label></td>
+                        <td><input type="text" name="percent1" class="width" id="percentage${count1}"> <br> <span id="percent1"
+                                class="bold"></span></td>
+                    </tr>`
+        table.appendChild(tr)
+        count1++;}
+    }
+    function func2() {
+        var table = document.getElementById("tbl2");
+        var tr = document.createElement("tr");
+        if(count2<=5){
+        tr.innerHTML = `  <tr id="tr2">
+                        <td><label>Company Name:</label></td>
+                        <td><input type="text" name="companyname" class="width" id="company${count2}"> <br> <span id="1" class="bold"></span>
+                        </td>
+                        <td><label>Designation:</label></td>
+                        <td><input type="text" name="designation" class="width" id="designation${count2}"> <br> <span id="2" class="bold"></span>
+                        </td>
+                        <td><label>Start date:</label></td>
+                        <td><input type="date" name="startdte" class="width" id="start${count2}"> <br> <span id="1" class="bold"></span>
+                        </td>
+                        <td><label>End date:</label></td>
+                        <td><input type="date" name="enddte" class="width" id="end${count2}"> <br> <span id="2" class="bold"></span></td>
+                    </tr>`
+        table.appendChild(tr)
+        count2++;}
+    }
+    function func3() {
+        var table = document.getElementById("tbl3");
+        var tr = document.createElement("tr");
+        if(count3<=5){
+        tr.innerHTML = `  <tr id="tr3">
+                        <td colspan="2">
+                            <label>Select your languages:</label>
+                        </td>
+                        <td colspan="2"><select id="language${count3}" name="list">
+                                <option value=""> Choose any one</option>
+                                <option value="hindi">Hindi</option>
+                                <option value="english">English</option>
+
+                            </select>
+
+                        </td>
+                        <td colspan="2">
+                            <label>language abilities:</label>
+                        </td>
+                        <td colspan="2">
+                            <input type="checkbox" id="read1" value="read${count3}"> Read
+                            <input type="checkbox" id="write1" value="write${count3}"> Write
+                            <input type="checkbox" id="speak1" value="speak${count3}"> Speak
+
+
+                        </td>
+                    </tr>
+`
+        table.appendChild(tr)
+        count3++;
+                }
+    }
+    function func4() {
+        var table = document.getElementById("tbl4");
+        var tr = document.createElement("tr");
+        if(count4<=5){
+        tr.innerHTML = `<tr id="tr4">
+                        <td>
+                            <label>Select your Technologies:</label>
+                        </td>
+                        <td><select id="technology${count4}" name="list">
+                                <option value=""> Choose any one</option>
+                                <option value="js">Javascript</option>
+                                <option value="database">Database</option>
+                            </select>
+                        </td>
+                        <td><label> Choose your Expertise:</label></td>
+                        <td><input type="radio" name="expertise${count4}" value="Beginer"> Beginer
+                            <input type="radio" name="expertise${count4}" value="Mideator"> Mideator
+                            <input type="radio" name="expertise${count4}" value="Expert"> Expert
+                            <br> <span id="6" class="bold"></span>
+                        </td>
+                    </tr>`
+        table.appendChild(tr)
+        count4++;}
+    }
+</script>
+
+
+</html>

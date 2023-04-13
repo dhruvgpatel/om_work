@@ -1,0 +1,48 @@
+td{
+  text-align: center;
+  
+}
+td:hover{
+  background-color: #5A8F7B;
+}
+
+input{
+  width: 310px;
+ height: 100px;
+ /* border:none; */
+ border-radius: 10px 10px 0 0;
+ font-size: 30px;
+ background-color: #20262E;
+  color: aliceblue;
+ 
+}
+table{
+
+  border-radius: 7px;
+}
+.gradient{
+background: linear-gradient(60deg, #ff0300, #ffa100);
+border-radius: 0 0 10px 0;
+color: #ffffff;
+box-shadow: 0 25px 60px -10px rgba(255, 10, 0, 0.5);}
+
+
+.grey{
+  background-color: #434242;
+  
+color: whitesmoke;
+}
+
+.border{
+  border-radius: 0 0 0 10px;
+}
+
+
+
+table { 
+  margin: auto;
+
+  box-shadow: 10px 10px 10px #999999;
+ }
+
+ 

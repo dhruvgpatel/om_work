@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <title> events</title>
+</head>
+<script>
+function i(){
+    document.getElementById(1).style.color = "red";
+}
+function o(){
+    document.getElementById(1).style.color = "black";
+}
+function go(){
+location.replace("https://www.w3schools.com/howto/howto_js_redirect_webpage.asp");
+}
+function dbl(){ 
+ alert("you click double click");
+}
+function keydown(){ 
+    document.getElementById('a').style.background= 'blue'
+    
+}
+function keyup(){ 
+    alert(" you unpress the keyboard key..");
+    document.getElementById('a').style.background= 'white'
+}
+
+</script>
+<body>
+    <p id="1" onmouseover="i()" onmouseout="o()" >when you move cursor on this then color will red otherwise color will blACK.</p>
+    <input type="button" id="2" value="click here" onclick="go()">
+    <input type="button" id="3" value="DOUBLE click here" ondblclick="dbl()">
+    <input type="text" onkeydown="keydown()" onkeyup="keyup()" id="a">
+ 
+</body>
+
+</html>

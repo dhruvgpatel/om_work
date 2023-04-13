@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Itim&family=Josefin+Sans&family=Kalam:wght@700&display=swap"
+        rel="stylesheet">
+    <title>exel format</title>
+</head>
+<style>
+    P {
+
+        text-align: center;
+
+        border: 2pc;
+        background-color: #B9F3FC;
+        border-radius: 7%;
+    }
+
+    body {
+        background-color: #00425A;
+    }
+
+    input {
+
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: large;
+    }
+</style>
+
+<body>
+    <center>
+        <div>
+            <form method="post" action="/saveall">
+                <table id="tbl1">
+                    <tr>
+
+                        <td style="background-color: #00FFF6; font-size: large; font-weight: 800;">
+                            <center>first name</center>
+                        </td>
+                        <td style="background-color: #00FFF6; font-size: large; font-weight: 800;">
+                            <center>last name</center>
+                        </td>
+                        <td style="background-color: #00FFF6; font-size: large; font-weight: 800;">
+                            <center>mobile</center>
+                        </td>
+                        <td style="background-color: #00FFF6; font-size: large; font-weight: 800;">
+                            <center>mail</center>
+                        </td>
+                        <td style="background-color: #00FFF6; font-size: large; font-weight: 800;">
+                            <center>edit data</center>
+                        </td>
+                        <td style="background-color: #00FFF6; font-size: large; font-weight: 800;">
+                            <center>delete data</center>
+                        </td>
+
+                    </tr>
+                    <% data.forEach(entry=> { %>
+                        <tr id="tr1">
+                            <td hidden><input type='text' value='<%=entry.id%>' name='id'> </td>
+                            <td><input type="text" value='<%=entry.fname%>' id="fname<%=entry.id%>" name="fname"></td>
+                            <td><input type="text" value='<%=entry.lname%>' id="lname<%=entry.id%>" name="lname"></td>
+                            <td><input type="text" value='<%=entry.mobile%>' id="mobile<%=entry.id%>" name="mobile">
+                            </td>
+                            <td><input type="text" value='<%=entry.mail%>' id="mail<%=entry.id%>" name="mail"></td>
+                            <td>
+                                <p style="   font-size: large;" onclick="save('<%=entry.id%>')">save</p>
+                            </td>
+                            <td>
+                                <p style="   font-size: large;" onclick="dlt('<%=entry.id%>')">delete</p>
+                            </td>
+                        </tr>
+                        <%})%>
+
+                </table>
+    </center>
+    <br>
+
+    <center> <input type="submit" style=" border: 2pc; background-color: #B9F3FC; border-radius: 7%; font-weight: 800; "
+            value='saveall'>
+        <input type="button" name="num" onclick="func1()"
+            style=" border: 2pc; background-color: #B9F3FC; border-radius: 7%; font-weight: 800; margin-left: 25cm; "
+            value="Add">
+    </center>
+    </form>
+
+
+
+
+    </div>
+</body>
+<script>
+
+
+
+
+    function func1() {
+        var table = document.getElementById("tbl1");
+        var tr = document.createElement("tr");
+
+        tr.innerHTML = `  
+            <tr id="tr1">
+
+                
+                <td><input type="text" name="fname"  id="fname" ></td>
+                <td><input type="text" name="lname" id="lname" ></td>
+                <td><input type="text" name="mobile" id="mobile" ></td>
+                <td><input type="text" name="mail" id="mail" ></td>
+                <td><p onclick="add()">save</p></td>
+                <td><p onclick="dlt()">delete</p></td>
+            </tr>
+            
+`
+        table.appendChild(tr)
+
+    }
+    async function save(id) {
+        var id = id;
+        var fname = document.getElementById(`fname${id}`).value;
+        var lname = document.getElementById(`lname${id}`).value;
+        var mobile = document.getElementById(`mobile${id}`).value;
+        var mail = document.getElementById(`mail${id}`).value;
+        fetch(`http://localhost:8080/save?id=${id}&fname=${fname}&lname=${lname}&mobile=${mobile}&mail=${mail}`);
+        alert('data saved successfully')
+        location.assign('exel')
+    }
+    async function dlt(id) {
+        var id = id;
+        var fname = document.getElementById(`fname${id}`).value;
+        var lname = document.getElementById(`lname${id}`).value;
+        var mobile = document.getElementById(`mobile${id}`).value;
+        var mail = document.getElementById(`mail${id}`).value;
+        fetch(`http://localhost:8080/delete?id=${id}&fname=${fname}&lname=${lname}&mobile=${mobile}&mail=${mail}`);
+        alert('data saved successfully')
+        window.location.reload();
+
+    }
+    async function add() {
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var mobile = document.getElementById("mobile").value;
+        var mail = document.getElementById("mail").value;
+        fetch(`http://localhost:8080/add?fname=${fname}&lname=${lname}&mobile=${mobile}&mail=${mail}`);
+        alert('data saved successfully')
+        window.location.reload();
+    }
+
+
+
+</script>
+
+</html>

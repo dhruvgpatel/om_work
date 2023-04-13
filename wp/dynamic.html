@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<script>
+    function f() {
+        var row = document.getElementById("row").value;
+        var col = document.getElementById("col").value;
+        document.write("<table border=1>");
+        for (let i = 1; i <= row; i++) {
+            document.write("<tr>")
+            for (let j = 1; j <= col; j++) {
+                document.write("<td>" + (i) + ',' + (j) + "</td>")
+
+            }
+            document.write("</tr>")
+        }
+        document.write("</table>")
+    }
+
+</script>
+
+<body>
+    <center>
+        <table border="2">
+            <tr>
+                <td colspan="2" <h1> enter the row and columns</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>rows:</p>
+                </td>
+                <td><input type="number" id="row"></td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <p>columns:</p>
+                </td>
+                <td><input type="number" id="col"></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" onclick="f()" name="btn" value="submit"></td>
+            </tr>
+
+        </table>
+    </center>
+</body>
+
+</html>

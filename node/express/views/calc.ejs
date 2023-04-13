@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title> JavaScript Calculator </title>
+
+  <link rel="stylesheet" href="/css/calculator.css">
+
+</head>
+
+<body>
+
+  <table cellpadding="0" cellspacing="0" border="0">
+    <form name="form1">
+
+
+      
+
+      <tr>
+        <td colspan="4"><input id="calc" type="text" name="answer"></td>
+      </tr>
+
+
+      <tr>
+        <td class="grey" onclick="form1.answer.value += '1' ">
+          <h2 value="1" >1</h2>
+        </td>
+        <td class="grey" onclick="form1.answer.value += '2' ">
+          <h2 value="2" >2</h2>
+        </td>
+        <td class="grey" onclick="form1.answer.value += '3' ">
+          <h2 value="3" >3</h2>
+        </td>
+        <td onclick="form1.answer.value += '+' ">
+          <h2 value="+" >+</h2>
+        </td>
+      </tr>
+      <tr>
+        <td class="grey" onclick="form1.answer.value += '4' ">
+          <h2 value="4" >4</h2>
+        </td>
+        <td class="grey" onclick="form1.answer.value += '5' ">
+          <h2 value="5" >5</h2>
+        </td>
+        <td class="grey" onclick="form1.answer.value += '6' ">
+          <h2 value="6" >6</h2>
+        </td>
+        <td  onclick="form1.answer.value += '-' ">
+          <h2 value="-">-</h2>
+        </td>
+      </tr>
+      <tr>
+        <td class="grey" onclick="form1.answer.value += '7' ">
+          <h2 value="7" >7</h2>
+        </td>
+        <td  class="grey" onclick="form1.answer.value += '8' ">
+          <h2 value="8" >8</h2>
+        </td>
+        <td  class="grey" onclick="form1.answer.value += '9' ">
+          <h2 value="9" >9</h2>
+        </td>
+        <td onclick="form1.answer.value += '*' ">
+          <h2 value="*" >*</h2>
+        </td>
+      </tr>
+      <tr>
+        <td  class="grey" onclick="form1.answer.value += '.' ">
+          <h2 value="." >.</h2>
+        </td>
+        <td  class="grey" onclick="form1.answer.value += '0' ">
+          <h2 value="0" >0</h2>
+        </td>
+        <td  class="grey" onclick="form1.answer.value += '/' ">
+          <h2 value="/" >/</h2>
+        </td>
+        <td rowspan="2"  class="gradient" onclick="form1.answer.value = eval(form1.answer.value) ">
+          <h2  value="=" >=</h2>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="3" class="grey border" onclick="form1.answer.value = ' ' " id="clear">
+          <h2 value="Clear All" >AC</h2>
+        </td>
+      </tr> 
+
+    </form>
+  </table>
+</body>
+
+</html>

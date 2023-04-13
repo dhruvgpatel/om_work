@@ -1,0 +1,132 @@
+<!-- ***************ejs file**************** -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Itim&family=Kalam:wght@700&display=swap" rel="stylesheet">
+</head>
+<style>
+
+.search{
+    font-size: 0.45cm;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 580;
+    width: 65%;
+}
+.go{
+    font-size: 0.45cm;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 580;
+    width: 7%;
+}
+.multi{
+    font-size: 0.45cm;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 580;
+    width: 6%;
+}
+     .tbl2{
+    font-size: 0.3cm;
+    background-color: #D7E9B9;
+    /* width: 100pt; */
+
+    }
+    .tbl1 {
+    height: fit-content;
+    width: 90%;
+    text-align: center;
+    font-size: 0.4cm;
+    background-color: #D7E9B9;
+    font-family: 'Courier Prime', monospace;
+}
+    tr {
+    font-size: 0.4cm;
+}
+    b{
+        background-color: lawngreen;
+        color: red;
+    }
+    body{
+       background-color: #F5F5F5;
+    }
+    
+</style>
+<body>   
+    <center>
+
+        <form action="/search" method="get" >
+            <input id="search" type="text" name="text" placeholder="search here" class="search">
+            
+            <input type="submit" value="Go" class="go">
+            <select name="multi" class="multi" >
+                <option value="and">AND</option>
+                <option value="or">OR</option>
+                </select>
+            </form>
+            <br>
+            
+        <table border="2" id="1" class="tbl1">
+            <tr>   
+            <td>*</td><td>fname</td>
+            <td>^</td><td>lname</td>
+            <td>@</td><td>address</td>
+            <td>#</td><td>city</td>
+            <td>$</td><td>pincode</td>
+            <td>~</td><td>state</td>
+            <td>!</td><td>num</td>
+            <td>_</td><td>email</td>
+            <td>?</td><td>gender</td>
+            <td>+</td><td>relationlist</td>
+            <td>%</td><td>dob</td>
+            <td>-</td><td>createtime</td>
+        </tr>
+       
+        </table>
+        <br>
+            <table border="2" id="2" class="tbl2">
+                
+        <tr>
+            <td><a href="/?num=1&curorder=c_id">id</a></td>
+            <td><a href="/?num=1&curorder=fname">firstname</a></td>
+            <td><a href="/?num=1&curorder=lname">lastname</a></td>
+            <td><a href="/?num=1&curorder=address">address</a></td>
+            <td><a href="/?num=1&curorder=city">city</a></td>
+            <td><a href="/?num=1&curorder=zipcode">pincode</a></td>
+            <td><a href="/?num=1&curorder=state">state</a></td>
+            <td><a href="/?num=1&curorder=contact">contact</a></td>
+            <td><a href="/?num=1&curorder=email">mail</a></td>
+            <td><a href="/?num=1&curorder=gender">gender</a></td>
+            <td><a href="/?num=1&curorder=relationship_status">relationlist</a></td>
+            <td><a href="/?num=1&curorder=dob">dob</a></td>
+            <td><a href="/?num=1&curorder=disignation">designation</a></td>
+            <td><a href="/?num=1&curorder=createtime">createtime</a></td>
+        </tr>
+        <% data.forEach(entry=> { %>
+        <tr>
+            <td><%=entry.c_id%></td>
+            <td><%=entry.fname%></td>
+            <td><%=entry.lname%></td>
+            <td><%=entry.address%></td>
+            <td><%=entry.city%></td>
+            <td><%=entry.zipcode%></td>
+            <td><%=entry.state%></td>
+            <td><%=entry.contact%></td>
+            <td><%=entry.email%></td>
+            <td><%=entry.gender%></td>
+            <td><%=entry.relationship_status%></td>
+            <td><%=entry.dob%></td>
+            <td><%=entry.disignation%></td>
+            <td><%=entry.createtime%></td>
+        </tr> 
+        <%})%> 
+    </table>
+
+    <center><a href="http://localhost:9001/">fill Another response</a></center>
+</center>
+</body>
+</html>

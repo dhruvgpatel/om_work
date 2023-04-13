@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     table{
+        text-align: center;
+     height: 6cm;
+     width: 20cm;
+     font-size:0.25cm;
+    }
+</style>
+<body>
+    <center>
+    <table border="2">
+        <tr>
+            <td>id</td>
+            <td>firstname</td>
+            <td>lastname</td>
+            <td>mail</td>
+            <td>mobile</td>
+            <td>dob</td>
+        </tr>
+        <% data[1].forEach(entry=> { %>
+        <tr>
+            <td><%=entry.id%></td>
+            <td><%=entry.fname%></td>
+            <td><%=entry.lname%></td>
+            <td><%=entry.mail%></td>
+            <td><%=entry.mobile%></td>
+            <td><%=entry.dob%></td>
+        </tr>
+        <%})%>
+
+    </table>
+ 
+    <% if(curpage == 1){ %>
+        <a href="#">⇚prev</a>
+      <% } else{ %>  
+        <a href="<%=curpage-1%>">⇚prev</a>
+     <% } %>
+
+   
+    
+    <!-- <%for (i=1; i<=count;i++){%>
+        <a href="<%=i%>"><%=i%></a>
+    <%}%> -->
+    <% if(curpage == count){ %>
+        <a href="#">next⇛</a>
+        <% } else{ %>  
+            <a href="<%=curpage+1%>">next⇛</a>
+       <% } %>
+    
+</center>
+</body>
+</html>
