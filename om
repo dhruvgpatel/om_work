@@ -1,0 +1,6 @@
+#include<stdio.h>
+#include<conio.h>
+int main() {
+printf("photo is click by me ! , remember that .");
+retutn 0;
+}
